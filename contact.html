@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>What the Pho should I eat?</title>
+    <title>Yummy Blog - Food Blog Template</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -20,6 +20,17 @@
     <!-- Responsive CSS -->
     <link href="css/responsive/responsive.css" rel="stylesheet">
 
+    <!-- Style sheet of form NEW-->
+    <style>
+  		@media only screen and (max-width: 600px) {
+  			.directly-rtm.is-minimized {
+      				top: 0;
+  				right: auto;
+  			}
+  		}
+  	</style>
+
+
 </head>
 
 <body>
@@ -28,6 +39,13 @@
         <div class="yummy-load"></div>
     </div>
 
+    <!-- Background Pattern Swither -->
+    <div id="pattern-switcher">
+        Bg Pattern
+    </div>
+    <div id="patter-close">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
 
     <!-- ****** Top Header Area Start ****** -->
     <div class="top_header_area">
@@ -48,10 +66,10 @@
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area d-flex">
                             <div class="login">
-                                <a href="register.html">Sign in</a>
+                                <a href="register.html">Sing in</a>
                             </div>
                             <div class="register">
-                                <a href="register.html">Sign up</a>
+                                <a href="register.html">Sing up</a>
                             </div>
                         </div>
                         <!-- Search Button Area -->
@@ -467,7 +485,57 @@
     <!-- Active JS -->
     <script src="js/active.js"></script>
 
-    <!-- Start of directlyhelp Zendesk Widget script -->
-    <script>/*<![CDATA[*/window.zE||(function(e,t,s){var n=window.zE=window.zEmbed=function(){n._.push(arguments)}, a=n.s=e.createElement(t),r=e.getElementsByTagName(t)[0];n.set=function(e){ n.set._.push(e)},n._=[],n.set._=[],a.async=true,a.setAttribute("charset","utf-8"), a.src="https://static.zdassets.com/ekr/asset_composer.js?key="+s, n.t=+new Date,a.type="text/javascript",r.parentNode.insertBefore(a,r)})(document,"script","6dc606ed-f567-40d9-bc5f-f3d1724e53f1");/*]]>*/</script>
-    <!-- End of directlyhelp Zendesk Widget script -->
+    <!-- NEWLY added for Test form -->
+    <script>
+    (function(d, i, r, e, c, t, l, y) {
+    i[r] = i[r] || function () {
+        (i[r].cq = i[r].cq || []).push(arguments)
+    };
+    l = d.createElement("script");
+    l.id = "directlyRTMScript";
+    l.src = e;
+    l.async = 1;
+    y = d.head || d.getElementsByTagName("head")[0];
+    if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+        y.appendChild(l);
+    } else if (i.addEventListener) {
+        i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+    } else {
+        i.attachEvent("onload", function() { y.appendChild(l); });
+    }
+})(document, window, "DirectlyRTM", "https://www.directly.com/widgets/rtm/embed.js");
+DirectlyRTM("config",{id: "8a0c723b62ca3e840162d5f1ec082b18" });
+
+</script>
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<input type="text" placeholder="name" name="name" id="name" ><br />
+<input type="text" placeholder="email" name="email" id="email" ><br />
+<input type="text" placeholder="text" name="text" id="text" ><br /><br />
+<input type="text" placeholder="questionCategory" name="questionCategory" id="questionCategory" ><br /><br />
+<button onclick="directly_askQuestion()">askQuestion</button>
+
+
+
+
+
+<script type="text/javascript">
+    function bacon() {
+        console.log('bacon');
+    }
+DirectlyRTM("onReady", function() {
+	var d_URL = window.location.href;
+	var d_link = "directly=true";
+	if (d_URL.indexOf(d_link) !== -1) {
+		bacon();
+		DirectlyRTM('openAskForm');
+	}
+});
+</script>
+
 </body>
