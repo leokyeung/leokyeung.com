@@ -504,7 +504,7 @@
         i.attachEvent("onload", function() { y.appendChild(l); });
     }
 })(document, window, "DirectlyRTM", "https://www.directly.com/widgets/rtm/embed.js");
-DirectlyRTM("config",{id: "8a0c723b62ca3e840162d5f1ec082b18", metadata:{ "URL" : window.location.href} });
+DirectlyRTM("config",{id: "8a0c723b62ca3e840162d5f1ec082b18", metadata:{ "From" : window.location.href} });
 
 function directly_askQuestion() {
   if (document.getElementById('questionCategory').value) {
@@ -553,9 +553,9 @@ function directly_askQuestion() {
         console.log('bacon');
     }
 DirectlyRTM("onReady", function() {
-	var d_URL = window.location.href;
+	var d_From = window.location.href;
 	var d_link = "directly=true";
-	if (d_URL.indexOf(d_link) !== -1) {
+	if (d_From.indexOf(d_link) !== -1) {
 		bacon();
 		DirectlyRTM('openAskForm');
 	}
