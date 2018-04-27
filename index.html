@@ -1034,7 +1034,10 @@
     <script src="js/others/plugins.js"></script>
     <!-- Active JS -->
     <script src="js/active.js"></script>
-<script>
+
+    
+    
+    <script>
 if (typeof Object.assign !== "function") {
     Object.assign = function(target) {
         "use strict";
@@ -1328,7 +1331,7 @@ if (typeof Object.assign !== "function") {
     });
 
     injectDirectlyRTM();
-    DirectlyRTM("config", { id: "8a28122f5c0b6124015c0cc2adaa1bea" });
+    DirectlyRTM("config", { id: "8a0c723b62ca3e840162d5f1ec082b18", metadata:{"Type":"Onboarding", "URL": window.location.href, "Source":{"Type":"Onboarding"} } });
     DirectlyRTM("onNavigate", function(data) {
         if (data.path === "/minimized") {
             widget.show();
@@ -1337,6 +1340,7 @@ if (typeof Object.assign !== "function") {
     widget.init();
 }(window, document));
 </script>
+
 
 
 
