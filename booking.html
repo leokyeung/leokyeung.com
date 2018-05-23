@@ -486,6 +486,7 @@
     <script src="js/active.js"></script>
 
     <!-- NEWLY added for Test form -->
+	
 <script>
     (function(d, i, r, e, c, t, l, y) {
         i[r] = i[r] || function () {
@@ -506,40 +507,6 @@
     })(document, window, "DirectlyRTM", "https://www.directly.com/widgets/rtm/embed.js");
     DirectlyRTM("config",{id: "8a0c723b62ca3e840162d5f1ec082b18" });
 </script>
-
-<a href="#" onclick="DirectlyRTM('openAskForm');">openAskForm</a><br />
-<a href="#" onclick="DirectlyRTM('maximize');">maximize</a><br />
-<a href="#" onclick="DirectlyRTM('minimize');">minimize</a><br />
-<a href="#" onclick="DirectlyRTM('set', 'displayAskQuestion', false);">hide</a><br />
-<a href="#" onclick="DirectlyRTM('set', 'displayAskQuestion', true);">display</a><br />
-
-<br/>
-<br/>
-<br/>
-<br/>
-
-<input type="text" placeholder="name" name="name" id="name" ><br />
-<input type="text" placeholder="email" name="email" id="email" ><br />
-<input type="text" placeholder="text" name="text" id="text" ><br /><br />
-<input type="text" placeholder="questionCategory" name="questionCategory" id="questionCategory" ><br /><br />
-<button onclick="directly_askQuestion()">askQuestion</button>
-
-
-
-
-
-<script type="text/javascript">
-    function bacon() {
-        console.log('bacon');
-    }
-DirectlyRTM("onReady", function() {
-	var d_Post_is_from = window.location.href;
-	var d_link = "directly=true";
-	if (d_From.indexOf(d_link) !== -1) {
-		bacon();
-		DirectlyRTM('openAskForm');
-	}
-});
-</script>
+	
 
 </body>
