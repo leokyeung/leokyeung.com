@@ -1,7 +1,8 @@
 .primary {
     display: flex;
     flex-direction: row;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Proxima Nova', Helvetica, Arial, sans-serif;
+
 }
 
 .main {
