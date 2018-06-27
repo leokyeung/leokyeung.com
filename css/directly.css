@@ -90,7 +90,8 @@
     -webkit-box-direction: normal;
     cursor: default;
     display: block;
-    font-size: 1em;
+    color: #2f4550;
+    font-size: 1.1em;
     margin-bottom: 5px;
     text-transform: uppercase;
     padding-top: 1em;
@@ -102,6 +103,7 @@
     border-radius: 0;
     box-sizing: border-box;
     width: 100%;
+    font-size: 1.1em;
     -webkit-appearance: none;
     line-height: normal;
     letter-spacing: normal;
@@ -133,13 +135,15 @@
     border: 1px solid #C4C4C4;
     border-radius: 0;
 }
+/* Drop down menu for Topics */
 .d-input-group select {
     padding: 20px;
     height: 100%;
     background: #FFFFFF;
     border: 1px solid #C4C4C4;
     width: 100%;
-    text-indent: 0px;
+    text-indent: 10px;
+    font-size: 1.15em;
     box-sizing: border-box;
     line-height: normal;
     letter-spacing: normal;
@@ -160,10 +164,11 @@ select:invalid, select option[value=""] {
     color: #797979;
 }
 
+/* Text box for Your Question */
 .d-input-group textarea {
     overflow: auto;
     resize: none;
-    padding: 17px 14px 15px;
+    padding: 17px 19px 15px;
     vertical-align: top;
     background: #FFFFFF;
     border: 1px solid #C4C4C4;
@@ -173,6 +178,7 @@ select:invalid, select option[value=""] {
     -webkit-appearance: none;
     cursor: text;
     white-space: pre-wrap;
+    font-size: 1.1em;
     word-wrap: break-word;
     text-rendering: auto;
     letter-spacing: normal;
@@ -184,7 +190,7 @@ select:invalid, select option[value=""] {
     text-align: start;
     -webkit-writing-mode: horizontal-tb;
     -webkit-box-direction: normal;
-    height:80px;
+    height:100px;
 }
 .d-input-group p {
     float:right;
@@ -268,7 +274,6 @@ select:invalid, select option[value=""] {
     margin-top: 3px;
     vertical-align: top;
     font-weight: bold;
-    font-weight: bold;
     color: #fff;
     line-height: 1;
     white-space: nowrap;
@@ -302,6 +307,6 @@ select:invalid, select option[value=""] {
     width:365px;
 }
 
-.d-dislaimer::-webkit-scrollbar { 
-    display: none; 
+.d-dislaimer::-webkit-scrollbar {
+    display: none;
 }
