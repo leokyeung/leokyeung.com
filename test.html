@@ -47,6 +47,7 @@ body {
             <div class="heading">
                 <h1>Rev Custom RTM</h1>
             </div>
+            /* Button to Open and Close RTM Widget */
             <div class="directlyButtons">
                 <div class="buttonContainer">
                     <button onclick="displayDirectlyForm()" class="btn btn-primary directlyButton">Open RTM</button>
@@ -141,7 +142,7 @@ body {
                 name: d_name,
                 email: d_email,
                 metadata: {
-                  topics: customerDropdown
+                  topics: customerDropdown, "rtm":{"returnUrl":"http://www.yahoo.com"}
                 }
             });
             hideDirectlyForm();
