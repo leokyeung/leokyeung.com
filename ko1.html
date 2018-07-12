@@ -498,76 +498,27 @@
 
 	
 	
-    <script>
+<script>
     (function(d, i, r, e, c, t, l, y) {
-    i[r] = i[r] || function () {
-        (i[r].cq = i[r].cq || []).push(arguments)
-    };
-    l = d.createElement("script");
-    l.id = "directlyRTMScript";
-    l.src = e;
-    l.async = 1;
-    y = d.head || d.getElementsByTagName("head")[0];
-    if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
-        y.appendChild(l);
-    } else if (i.addEventListener) {
-        i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
-    } else {
-        i.attachEvent("onload", function() { y.appendChild(l); });
-    }
-})(document, window, "DirectlyRTM", "https://www.directly.com/widgets/rtm/embed.js");
-DirectlyRTM("config",{id: "8a09253a61c0755b0161d9330f107f9a", metadata:{ "URL" : window.location.href} });
-
-function directly_askQuestion() {
-  if (document.getElementById('questionCategory').value) {
-    DirectlyRTM('askQuestion', {
-          questionText: document.getElementById("text").value,
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-      questionCategory: document.getElementById('questionCategory').value
-      });
-  } else {
-     DirectlyRTM('askQuestion', {
-          questionText: document.getElementById("text").value,
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value
-      });
-  }
-
-}
-
-
+        i[r] = i[r] || function () {
+            (i[r].cq = i[r].cq || []).push(arguments)
+        };
+        l = d.createElement("script");
+        l.id = "directlyRTMScript";
+        l.src = e;
+        l.async = 1;
+        y = d.head || d.getElementsByTagName("head")[0];
+        if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+            y.appendChild(l);
+        } else if (i.addEventListener) {
+            i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+        } else {
+            i.attachEvent("onload", function() { y.appendChild(l); });
+        }
+    })(document, window, "DirectlyRTM", "https://www.directly.com/widgets/rtm/embed.js");
+    DirectlyRTM("config",{id: "8aab5f796401349b01641e0f609613c6" });
 </script>
 
-
-<br/>
-<br/>
-<br/>
-<br/>
-
-<input type="text" placeholder="name" name="name" id="name" ><br />
-<input type="text" placeholder="email" name="email" id="email" ><br />
-<input type="text" placeholder="text" name="text" id="text" ><br /><br />
-<input type="text" placeholder="questionCategory" name="questionCategory" id="questionCategory" ><br /><br />
-<button onclick="directly_askQuestion()">askQuestion</button>
-
-
-
-
-
-<script type="text/javascript">
-    function bacon() {
-        console.log('bacon');
-    }
-DirectlyRTM("onReady", function() {
-	var d_URL = window.location.href;
-	var d_link = "directly=true";
-	if (d_URL.indexOf(d_link) !== -1) {
-		bacon();
-		DirectlyRTM('openAskForm');
-	}
-});
-</script>
 
 
 
