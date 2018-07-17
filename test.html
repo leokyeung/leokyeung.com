@@ -59,14 +59,14 @@ body {
         </div>
     </div>
 
-    <!-- Directly RTM front end custom -->
+    <!-- Directly RTM front end -->
     <div class="d-container" id="d-container-id">
         <div class="d-header">
             <h1 class="d-header-title">How can we help you?</h1>
             <p class="d-header-close" onclick="hideDirectlyForm()">X</p>
         </div>
         <div class="d-form-container">
-            <form class="d-ask-form" action="#" onsubmit="DirectlyAsk();return false">
+            <form class="d-ask-form" action="#" onsubmit="DirectlyAsk()">
                 <div class="d-input-group">
                     <label><strong>Name</strong></label>
                     <input id="name" type="text" placeholder="Type your name here" required>
@@ -97,7 +97,6 @@ body {
         </div>
     </div>
 
-
     <!-- Directly RTM javascript -->
     <link rel="stylesheet" type="text/css" href="css/directly.css">
     <script type="text/javascript">
@@ -122,36 +121,35 @@ body {
         DirectlyRTM("config",{id: "8aab5f796401349b01641e0f609613c6" });
 
         function displayDirectlyForm() {
-            document.getElementById('d-container-id').style.display = "block";
+            document.getElementById("d-container-id").style.display = "block";
         }
 
         function hideDirectlyForm() {
-            document.getElementById('d-container-id').style.display = "none";
+            document.getElementById("d-container-id").style.display = "none";
         }
 
         function DirectlyAsk() {
-            let d_name = document.getElementById('name').value;
-            let d_email = document.getElementById('email').value;
-            let d_question = document.getElementById('body').value;
-            let customerDropdown = document.getElementById('customerDropdown').value
+            var d_name = document.getElementById("name").value;
+            var d_email = document.getElementById("email").value;
+            var d_question = document.getElementById("body").value;
+            var customerDropdown = document.getElementById("customerDropdown").value
             if (customerDropdown !== "Transcription" && customerDropdown !== "Captioning") {
-                document.getElementById('customerDropdownError').innerHTML = "Please select Transcription or Captioning to continue."
+                document.getElementById("customerDropdownError").innerHTML = "Please select Transcription or Captioning to continue."
                 return;
             }
-            DirectlyRTM('askQuestion', {
+            DirectlyRTM("askQuestion", {
                 questionText: d_question,
                 name: d_name,
                 email: d_email,
                 metadata: {
-                  topics: customerDropdown, "rtm":{"returnUrl":"http://www.yahoo.com"}
+                  topics: customerDropdown, "rtm":{"returnUrl":"Insert the returnURL here"}
                 }
             });
             hideDirectlyForm();
+            return false;
         }
     </script>
-    
-    <br> </br>
-    <script src="https://sap-rtm.directly.com/ask.js"></script>
+
 
 </body>
 </html>
