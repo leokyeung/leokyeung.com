@@ -1,4 +1,4 @@
-<option value="2">SAP SuccessFactors Employee Central</option>
-<option value="3">SAP SuccessFactors Learning (LMS) Module</option>
+<option>ICE CREAM</option>
+<option>CHOCOLATE</option>
 <option value="4">SAP SuccessFactors Onboarding</option>
 <option value="5">SAP SuccessFactors Recruiting</option>
