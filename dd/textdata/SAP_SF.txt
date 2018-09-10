@@ -1,2 +1,4 @@
-<option>Chips</option>
-<option>Cookies</option>
+<option value="SAP_SF">SAP SuccessFactors Employee Central</option>
+<option value="SAP_SF">SAP SuccessFactors Learning (LMS) Module</option>
+<option value="SAP_SF">SAP SuccessFactors Onboarding</option>
+<option value="SAP_SF">	SAP SuccessFactors Recruiting</option>
