@@ -1,2 +1,7 @@
-<option>Coffee</option>
-<option>Coke</option>
+<option value="" selected disabled hidden>Please Select</option>
+<option value="SAP NetWeaver - Change Control">Software Logistics - Change Control and Transport (CTS)</option>
+<option value="SAP NetWeaver - System Upgrade">Software Logistics - System Maintenance (Upgrade)</option>
+<option value="SAP NetWeaver - System Installation">Software Logistics - System Provisioning (Installation)</option>
+<option value="SAP NetWeaver - ABAP Development">ABAP Development Workbench</option>
+<option value="SAP NetWeaver - ABAP Runtime">ABAP Runtime Environment</option>
+<option value="SAP NetWeaver - Client Server Tech">SAP Client Server Technology (CST)</option>
