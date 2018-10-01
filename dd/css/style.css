@@ -1,0 +1,455 @@
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("../fonts/proximanova-reg-webfont.woff2") format("woff2"),
+         url("../fonts/proximanova-reg-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("../fonts/proximanova-sbold-webfont.woff2") format("woff2"),
+         url("../fonts/proximanova-sbold-webfont.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("../fonts/proximanova-light-webfont.woff2") format("woff2"),
+         url("../fonts/proximanova-light-webfont.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("../fonts/proximanova-extrabold-webfont.woff2") format("woff2"),
+         url("../fonts/proximanova-extrabold-webfont.woff") format("woff");
+    font-weight: 800;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+[hidden],
+.hidden {
+    display: none !important;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    color: #2f4550;
+    font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+a:visited {
+    color: #1292da;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+svg {
+    display: inline-block;
+    fill: currentColor;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.page-wrap {
+    min-height: 100%;
+    margin-bottom: -60px;
+}
+
+    .page-wrap.narrow {
+        padding-right: 300px;
+    }
+
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+
+.footer,
+.page-wrap:after {
+    height: 60px;
+}
+
+.header {
+    align-items: center;
+    display: flex;
+    padding: 20px;
+}
+
+    .header .logo-wrapper {
+        flex: 1 1 auto;
+    }
+
+        .header .logo {
+            height: 34px;
+            width: 122px;
+        }
+
+    .header .auth-wrapper {
+        flex: 0 0 auto;
+    }
+
+        .header .auth-wrapper a {
+            color: #2f4550;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+.main-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 820px;
+}
+
+    .ask-form-title {
+        font-size: 26px;
+        font-weight: 100;
+        letter-spacing: 1px;
+        line-height: 1.65;
+        margin-bottom: 30px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+        .ask-form-title .sap-logo{
+            height: 30px;
+            right: -4px;
+            position: relative;
+            top: 5px;
+            width: 61px;
+        }
+
+    .subtext {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .ask-form {
+        background-color: #f4f6f6;
+        box-sizing: border-box;
+        margin: 30px auto 0;
+        max-width: 480px;
+        padding: 30px;
+        background-repeat: no-repeat;
+        background-position: top 10px right 10px;
+    }
+
+    .ask-form .control-group {
+        margin-bottom: 24px;
+    }
+
+        .ask-form .control-group label {
+            display: block;
+            font-size: 10px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .ask-form .control-group input {
+          background-color: #EFEFEF;
+          border: 1px solid #919da3;
+          border-radius: 3px;
+          font-size: 14px;
+          padding: 9px 14px 8px;
+          resize: none;
+          width: 100%;
+        }
+
+        .ask-form .control-group select,
+        .ask-form .control-group textarea {
+          background-color: #fff;
+          border: 1px solid #919da3;
+          border-radius: 3px;
+          font-size: 14px;
+          padding: 9px 14px 8px;
+          resize: none;
+          width: 100%;
+        }
+
+
+            .ask-form input.error,
+            .ask-form select.error,
+            .ask-form textarea.error {
+                border-color: #ee0000;
+            }
+
+            .ask-form input:focus,
+            .ask-form select:focus,
+            .ask-form textarea:focus {
+                outline: none;
+            }
+
+            .ask-form .control-group textarea {
+                max-height: 280px;
+            }
+
+            .ask-form .control-group .select{
+                position: relative;
+            }
+
+            .ask-form .control-group .sub{
+                position: relative;
+            }
+
+            .ask-form .control-group .select select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              background: #fff;
+              line-height: 1;
+              padding-bottom: 10px;
+              padding-top: 11px;
+              width: 100%;
+              padding-right: 40px;
+            }
+
+
+            .ask-form .control-group .sub select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              background: #fff;
+              line-height: 1;
+              padding-bottom: 10px;
+              padding-top: 11px;
+              width: 100%;
+              padding-right: 40px;
+            }
+
+
+
+
+
+
+
+                .ask-form .control-group .select:before,
+                .ask-form .control-group .select:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                }
+
+                .ask-form .control-group .sub:before,
+                .ask-form .control-group .sub:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                }
+
+                    .ask-form .control-group .select:before {
+                        border-left: 1px solid #919da3;
+                        height: 100%;
+                        right: 40px;
+                        top: 0;
+                    }
+
+                    .ask-form .control-group .sub:before {
+                        border-left: 1px solid #919da3;
+                        height: 100%;
+                        right: 90px;
+                        top: 0;
+                    }
+
+                    .ask-form .control-group .select:after {
+                        border: transparent solid;
+                        border-top-color: #919da3;
+                        border-width: 8px 5px;
+                        height: 0;
+                        pointer-events: none;
+                        right: 16px;
+                        top: 17px;
+                        width: 0;
+                    }
+                    .ask-form .control-group .sub:after {
+                        border: transparent solid;
+                        border-top-color: #919da3;
+                        border-width: 8px 5px;
+                        height: 0;
+                        pointer-events: none;
+                        right: 65px;
+                        top: 17px;
+                        width: 0;
+                    }
+
+        .ask-form button {
+            align-self: flex-end;
+            background-color: #1292da;
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            flex: 0 0 auto;
+            font-size: 14px;
+            padding: 9px 18px 8px 38px;
+            position: relative;
+        }
+
+            .ask-form button svg {
+                fill: #fff;
+                height: 16px;
+                left: 16px;
+                margin: -7px 0 0 0;
+                position: absolute;
+                top: 50%;
+                width: 16px;
+            }
+
+    .ask-form-confirmation {
+        font-size: 50px;
+        padding: 50px 10px;
+        text-align: center;
+    }
+
+        .ask-form-confirmation-title {
+            font-size: 19px;
+            font-weight: normal;
+        }
+
+    .disclaimer {
+        color: #ababab;
+        box-sizing: border-box;
+        margin: 10px auto;
+        max-width: 480px;
+        padding: 0;
+    }
+
+    .expert-list-wrapper {
+        margin: 70px 0 120px;
+        text-align: center;
+    }
+
+        .expert-list-title {
+            font-size: 25px;
+            font-weight: 100;
+            margin-bottom: 30px;
+            opacity: 0.6;
+        }
+
+        .expert-list {
+            display: flex;
+            justify-content: space-around;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 70px;
+            padding-right: 70px;
+        }
+
+            .expert-item {
+                width: 180px;
+            }
+
+                .expert-avatar {
+                    border-radius: 999px;
+                    margin: 0 0 8px 0;
+                }
+
+                    .expert-avatar img {
+                        border-radius: 999px;
+                    }
+
+                .expert-name {
+                    font-size: 17px;
+                    font-weight: bold;
+                }
+
+                .expert-role {
+                    font-size: 11px;
+                    font-weight: 700;
+                    letter-spacing: 0.5px;
+                    margin: 0;
+                    opacity: 0.7;
+                    padding: 0;
+                    text-transform: uppercase;
+                }
+
+                .expert-last-active {
+                    font-size: 11px;
+                    margin: 0;
+                    opacity: 0.7;
+                    padding: 0;
+                }
+
+.footer {
+    background-color: #f1f0ef;
+    padding: 22px 0 20px;
+}
+    .footer nav {
+        text-align: center;
+    }
+
+    .footer nav a {
+        color: #2f4550;
+        letter-spacing: 2px;
+        margin: 0 40px;
+        opacity: 0.6;
+        text-transform: uppercase;
+    }
+
+
+@keyframes animate-company {
+    0% {
+        opacity: 0.001;
+        transform: translate(-50%, -120%);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    90% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    100% {
+        opacity: 0.001;
+        transform: translate(-50%, 120%);
+    }
+}
+
+.noUserInfo {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 0 0;
+    width: 100%;
+    color: #D64550;
+    font-size: 14px;
+    text-align: center;
+}
