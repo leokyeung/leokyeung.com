@@ -480,7 +480,7 @@
 	
 <a href="javascript:DirectlyRTM('openAskForm');" target="_blank" role="button" class="channel-btn">Ask an Expert</a>
 	
-    <script>
+  <script>
 
 
         (function(d, i, r, e, c, t, l, y) {
@@ -503,16 +503,16 @@
 
         var date = new Date();    //Get today's date (Our server is running in UTC Timezone)
         var day = date.getDay();  // Assign day to the number of the day of the week
-        var dayOfWeek;            
+        var dayOfWeek;
 
         // Saturday is 6, Sunday is 0
-        if (day == 3 || day == 4)
+        if (day == 6 || day == 0)
         {
-            whatday = "Weekend";
+            dayOfWeek = "Weekend";
         }
         else
         {
-            whatday = "Weekday";
+            dayOfWeek = "Weekday";
         };
 
         DirectlyRTM("config",{
