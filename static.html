@@ -480,26 +480,49 @@
 	
 <a href="javascript:DirectlyRTM('openAskForm');" target="_blank" role="button" class="channel-btn">Ask an Expert</a>
 	
-<script>
-    (function(d, i, r, e, c, t, l, y) {
-        i[r] = i[r] || function () {
-            (i[r].cq = i[r].cq || []).push(arguments)
-        };
-        l = d.createElement("script");
-        l.id = "directlyRTMScript";
-        l.src = e;
-        l.async = 1;
-        y = d.head || d.getElementsByTagName("head")[0];
-        if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
-            y.appendChild(l);
-        } else if (i.addEventListener) {
-            i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
-        } else {
-            i.attachEvent("onload", function() { y.appendChild(l); });
+    <script>
+
+
+        (function(d, i, r, e, c, t, l, y) {
+            i[r] = i[r] || function () {
+                (i[r].cq = i[r].cq || []).push(arguments)
+            };
+            l = d.createElement("script");
+            l.id = "directlyRTMScript";
+            l.src = e;
+            l.async = 1;
+            y = d.head || d.getElementsByTagName("head")[0];
+            if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+                y.appendChild(l);
+            } else if (i.addEventListener) {
+                i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+            } else {
+                i.attachEvent("onload", function() { y.appendChild(l); });
+            }
+        })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
+
+        var date = new Date();    //Get today's date
+        var day = date.getDay();  // Assign day to the number of the day of the week
+        var whatday;
+
+        // Saturday is 6, Sunday is 0
+        if (day == 6 || day == 0)
+        {
+            whatday = "Weekend";
         }
-    })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
-    DirectlyRTM("config",{id: "2c9985ab65a6de780165b0d073371208", displayAskQuestion: false });
-</script>
+        else
+        {
+            whatday = "Weekday";
+        };
+
+        DirectlyRTM("config",{
+            id: "2c99829d665726ac01665a93a0af16b5",
+            questionCategory: whatday,
+            metadata: {
+              Day: "Dontmatter"
+            }
+        });
+    </script>
 
 
 </body>
