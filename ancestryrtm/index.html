@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/directly.css">
+    <title>Ancestry</title>
+</head>
+<body>
+    <!-- Test form for RTM -->
+    <div class="primary">
+        <!-- Navbar -->
+        <div class="topBar">
+            <div class="topBarContainer">
+                <div class="leftContainer">
+                    <div class="logo">
+                        <img class="directlyLogo" src="img/directly-demo.png" alt="directly-logo"/>
+                    </div>
+                </div>
+                <div class="rightContainer">
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="heading">
+                <h1>Ancestry Custom RTM</h1>
+            </div>
+            <div class="directlyButtons">
+                <div class="buttonContainer">
+                    <button onclick="displayDirectlyForm()" class="btn btn-primary directlyButton">Open RTM</button>
+                </div>
+                <div class="buttonContainer">
+                    <button onclick="hideDirectlyForm()" class="btn btn-primary directlyButton">Close RTM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Directly RTM custom -->
+    <div class="d-container" id="d-container-id">
+        <div class="d-header">
+            <div class="title-box">
+                <h1 class="d-header-title">How can we help you?</h1>
+            </div>
+            <div class="close-box">
+                <span class="d-header-close" onclick="hideDirectlyForm()">X</span>
+            </div>
+        </div>
+        <div class="d-form-container">
+            <form class="d-ask-form" action="#" onsubmit="DirectlyAsk();return false">
+                <div class="d-input-group">
+                    <label><strong>Name</strong></label>
+                    <input id="name" type="text" placeholder="Type your name here" required>
+                </div>
+                <div class="d-input-group">
+                    <label><strong>Email</strong></label>
+                    <input id="email" type="email" placeholder="Type your email address here" required>
+                </div>
+                <div class="d-input-group">
+                    <label><strong>Category</strong></label>
+                    <select name="categoryDropdown" id="categoryDropdown" onchange="setSubCategory()">
+                        <option value="" selected disabled hidden>Please select</option>
+                        <option value="Accounts & Billing">Accounts and Billing</option>
+                        <option value="Ancestry Online">Ancestry Online</option>
+                        <option value="DNA">DNA</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Privacy">Privacy</option>
+                    </select>
+                    <span id="categoryDropdownError" style="color:#D64550"></span>
+                </div>
+                <div class="d-input-group">
+                    <label><strong>Sub-Category</strong></label>
+                    <select name="subCategoryDropdown" id="subCategoryDropdown">
+                        <option value="" selected disabled hidden>Please select from above</option>
+                    </select>
+                    <span id="subCategoryDropdownError" style="color:#D64550"></span>
+                </div>
+                <div class="d-input-group">
+                    <label><strong>Your Question</strong></label>
+                    <textarea id="body" type="text" placeholder="How can we help?" rows="5" required></textarea>
+                </div>
+                <div class="d-submit-group">
+                    <button type="submit">
+                        <strong>Send to our experts</strong>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Directly RTM javascript -->
+    <script type="text/javascript">
+        (function(d, i, r, e, c, t, l, y) {
+            i[r] = i[r] || function () {
+                (i[r].cq = i[r].cq || []).push(arguments)
+            };
+            l = d.createElement("script");
+            l.id = "directlyRTMScript";
+            l.src = e;
+            l.async = 1;
+            y = d.head || d.getElementsByTagName("head")[0];
+            if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+                y.appendChild(l);
+            } else if (i.addEventListener) {
+                i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+            } else {
+                i.attachEvent("onload", function() { y.appendChild(l); });
+            }
+        })(document, window, "DirectlyRTM", "https://www.directly.com/widgets/rtm/embed.js");
+
+        DirectlyRTM("config",{id: "8a28122f5c0b6124015c0e25fe334303"});
+
+        function displayDirectlyForm() {
+            document.getElementById("d-container-id").style.display = "block";
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("body").value = "";
+            document.getElementById("categoryDropdown").value = "";
+            document.getElementById("subCategoryDropdown").value = "";
+        }
+
+        function hideDirectlyForm() {
+            document.getElementById("d-container-id").style.display = "none";
+        }
+
+        function DirectlyAsk() {
+            let d_name = document.getElementById("name").value;
+            let d_email = document.getElementById("email").value;
+            let d_question = document.getElementById("body").value;
+            let categoryDropdown = document.getElementById("categoryDropdown").value
+            let subCategoryDropdown = document.getElementById("subCategoryDropdown").value
+            if (categoryDropdown === "") {
+                document.getElementById("categoryDropdownError").innerHTML = "Please select an option to continue"
+                return;
+            }
+            if (subCategoryDropdown === "") {
+                document.getElementById("subCategoryDropdownError").innerHTML = "Please select an option to continue"
+                return;
+            }
+            DirectlyRTM('askQuestion', {
+                questionText: d_question,
+                name: d_name,
+                email: d_email,
+                metadata: {
+                    Category: categoryDropdown,
+                    Subcategory: subCategoryDropdown,
+                    "internal":{ "Source": "RTM" }
+                },
+            });
+            hideDirectlyForm();
+        }
+
+        // Dynamically define sub-category drop-down depending on category drop-down selection
+        function setSubCategory() {
+            let categoryValue = document.getElementById("categoryDropdown").value
+            let subCategory = document.getElementById("subCategoryDropdown")
+            subCategory.options.length = 0;
+
+            if (categoryValue === "Accounts & Billing") {
+                subCategory.options[subCategory.options.length] = new Option("Please Select", "", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Subscriptions", "subscriptions", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Account settings", "accountSettings", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Login issues", "loginIssues", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Cancel your subscription", "cancelSubscription", false, false)
+            }
+            if (categoryValue === "Ancestry Online") {
+                subCategory.options[subCategory.options.length] = new Option("Please Select", "", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Search", "search", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Trees", "trees", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Records", "records", false, false)
+                subCategory.options[subCategory.options.length] = new Option("How-to", "howTo", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Company policy", "companyPolicy", false, false)
+            }
+            if (categoryValue === "DNA") {
+                subCategory.options[subCategory.options.length] = new Option("Please Select", "", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Results", "results", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Privacy settings", "privacySettings", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Activation", "activation", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Status", "status", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Company policy", "companyPolicy", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Purchasing", "purchasing", false, false)
+            }
+            if (categoryValue === "Mobile") {
+                subCategory.options[subCategory.options.length] = new Option("Please Select", "", false, false)
+                subCategory.options[subCategory.options.length] = new Option("iOS", "iOS", false, false)
+                subCategory.options[subCategory.options.length] = new Option("Android", "Andriod", false, false)
+
+            }
+            if (categoryValue === "Privacy") {
+                subCategory.options[subCategory.options.length] = new Option("None", "None", false, false)
+            }
+        }
+    </script>
+</body>
+</html>
