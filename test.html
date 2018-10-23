@@ -98,57 +98,27 @@ body {
     </div>
 
     <!-- Directly RTM javascript -->
-    <link rel="stylesheet" type="text/css" href="css/directly.css">
-    <script type="text/javascript">
-        (function(d, i, r, e, c, t, l, y) {
-            i[r] = i[r] || function () {
-                (i[r].cq = i[r].cq || []).push(arguments)
-            };
-            l = d.createElement("script");
-            l.id = "directlyRTMScript";
-            l.src = e;
-            l.async = 1;
-            y = d.head || d.getElementsByTagName("head")[0];
-            if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
-                y.appendChild(l);
-            } else if (i.addEventListener) {
-                i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
-            } else {
-                i.attachEvent("onload", function() { y.appendChild(l); });
-            }
-        })(document, window, "DirectlyRTM", "https://www.directly.com/widgets/rtm/embed.js");
-
-        DirectlyRTM("config",{id: "8aab5f796401349b01641e0f609613c6" });
-
-        function displayDirectlyForm() {
-            document.getElementById("d-container-id").style.display = "block";
+<script>
+    (function(d, i, r, e, c, t, l, y) {
+        i[r] = i[r] || function () {
+            (i[r].cq = i[r].cq || []).push(arguments)
+        };
+        l = d.createElement("script");
+        l.id = "directlyRTMScript";
+        l.src = e;
+        l.async = 1;
+        y = d.head || d.getElementsByTagName("head")[0];
+        if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+            y.appendChild(l);
+        } else if (i.addEventListener) {
+            i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+        } else {
+            i.attachEvent("onload", function() { y.appendChild(l); });
         }
+    })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
+    DirectlyRTM("config",{id: "2c9985ab668037e00166a24a66d72528" });
+</script>
 
-        function hideDirectlyForm() {
-            document.getElementById("d-container-id").style.display = "none";
-        }
-
-        function DirectlyAsk() {
-            var d_name = document.getElementById("name").value;
-            var d_email = document.getElementById("email").value;
-            var d_question = document.getElementById("body").value;
-            var customerDropdown = document.getElementById("customerDropdown").value
-            if (customerDropdown !== "Transcription" && customerDropdown !== "Captioning") {
-                document.getElementById("customerDropdownError").innerHTML = "Please select Transcription or Captioning to continue."
-                return;
-            }
-            DirectlyRTM("askQuestion", {
-                questionText: d_question,
-                name: d_name,
-                email: d_email,
-                metadata: {
-                  topics: customerDropdown, "rtm":{"returnUrl":"Insert the returnURL here"}
-                }
-            });
-            hideDirectlyForm();
-            return false;
-        }
-    </script>
 
 
 </body>
