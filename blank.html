@@ -7,16 +7,19 @@
 </head>
 <body>
 
-    <script>
 if (typeof Object.assign !== "function") {
     Object.assign = function(target) {
         "use strict";
+
         if (target === null) {
             throw new TypeError("Cannot convert undefined or null to object");
         }
+
         var to = Object(target);
+
         for (var index = 1; index < arguments.length; index++) {
             var nextSource = arguments[index];
+
             if (nextSource !== null) {
                 for (var nextKey in nextSource) {
                     if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
@@ -25,13 +28,17 @@ if (typeof Object.assign !== "function") {
                 }
             }
         }
+
         return to;
     };
 }
+
 (function(window, document) {
     "use strict";
+
     var SupportWidget = function(config) {
         this.STORAGE_KEY = "_support_widget";
+
         this.defaults = {
             shouldStartMinimized: true,
         };
@@ -43,9 +50,11 @@ if (typeof Object.assign !== "function") {
         this.wrapper = undefined;
         this.initLocalStorage();
     };
+
     SupportWidget.prototype.buildWidget = function buildWidget() {
         var wrapper = document.createElement("div");
         var header = this.buildWidgetHeader();
+
         header.addEventListener("click", function() {
             this.onClickWidgetHeader();
         }.bind(this));
@@ -61,12 +70,15 @@ if (typeof Object.assign !== "function") {
         wrapper.style.visibility = "hidden";
         wrapper.appendChild(header);
         wrapper.appendChild(this.buildWidgetContent());
+
         return wrapper;
     };
+
     SupportWidget.prototype.buildWidgetHeader = function buildWidgetHeader() {
         var header = document.createElement("h1");
         var titleText = this.config.shouldStartMinimized ? this.config.widgetTitle.minimized : this.config.widgetTitle.maximized;
         var title = document.createTextNode(titleText);
+
         header.style.backgroundColor = "#4CBE9F";
         header.style.borderRadius = "10px 10px 0 0";
         header.style.color = "#fff";
@@ -74,12 +86,13 @@ if (typeof Object.assign !== "function") {
         header.style.fontFamily = "'PT Sans', Helvetica, Arial, sans-serif";
         header.style.fontSize = "14px";
         header.style.fontWeight = "normal";
-        header.style.lineHeight = 1.333;
         header.style.margin = 0;
         header.style.padding = "16px 14px 14px";
         header.appendChild(title);
+
         return header;
     };
+
     SupportWidget.prototype.buildWidgetContent = function buildWidgetContent() {
         var content = document.createElement("ul");
         var items = this.supportMethods.forEach(function(itemOptions) {
@@ -87,8 +100,10 @@ if (typeof Object.assign !== "function") {
                 content.appendChild(this.buildWidgetItem(itemOptions));
             }
         }.bind(this));
+
         return content;
     };
+
     SupportWidget.prototype.buildWidgetItem = function buildWidgetItem(options) {
         var item = document.createElement("li");
         var title = document.createElement("a");
@@ -96,6 +111,7 @@ if (typeof Object.assign !== "function") {
         var arrow = document.createElement("span");
         var titleText = document.createTextNode(options.title);
         var descriptionText = document.createTextNode(options.description);
+
         arrow.style.borderRight = "1px solid #2f7561";
         arrow.style.borderTop = "1px solid #2f7561";
         arrow.style.height = "7px";
@@ -104,23 +120,27 @@ if (typeof Object.assign !== "function") {
         arrow.style.transform = "rotate(45deg)";
         arrow.style.top = "24px";
         arrow.style.width = "7px";
+
         title.style.color = "#2f7561";
         title.style.display = "block";
         title.style.fontWeight = "bold";
         title.style.marginBottom = "4px";
         title.appendChild(titleText);
+
         description.style.color = "#41535c";
         description.style.fontSize = "13px";
         description.appendChild(descriptionText);
+
         item.style.borderBottom = "1px solid #e5e8e9";
         item.style.cursor = "pointer";
         item.style.lineHeight = "1.333";
         item.style.padding = "20px 14px 18px 34px";
         item.style.position = "relative";
-        item.style.listStyleType = "none";
+
         if (options.isNew) {
             var newBadge = document.createElement("span");
             var newBadgeText = document.createTextNode("New");
+
             newBadge.style.backgroundColor = "#fc0";
             newBadge.style.borderRadius = "5px";
             newBadge.style.color = "#060500";
@@ -131,15 +151,19 @@ if (typeof Object.assign !== "function") {
             newBadge.style.position = "relative";
             newBadge.style.textTransform = "uppercase";
             newBadge.style.top = "-1px";
+
             newBadge.appendChild(newBadgeText);
             title.appendChild(newBadge);
         }
+
         item.appendChild(arrow);
         item.appendChild(title);
         item.appendChild(description);
+
         if (options.footnote) {
             var footnote = document.createElement("span");
             var footnoteText = document.createTextNode(options.footnote);
+
             footnote.style.color = "#bbb";
             footnote.style.display = "block";
             footnote.style.fontSize = "12px";
@@ -147,12 +171,16 @@ if (typeof Object.assign !== "function") {
             footnote.appendChild(footnoteText);
             item.appendChild(footnote);
         }
+
         item.addEventListener("click", options.onClick);
+
         return item;
     };
+
     SupportWidget.prototype.onClickWidgetHeader = function onClickWidgetHeader() {
         var header = this.wrapper.childNodes[0];
         var headerTitle = header.childNodes[0];
+
         if (this.state.isMinimized) {
             headerTitle.nodeValue = this.config.widgetTitle.maximized;
             this.wrapper.style.bottom = 0;
@@ -165,45 +193,57 @@ if (typeof Object.assign !== "function") {
             this.saveStateToLocalStorage();
         }
     };
+
     SupportWidget.prototype.getBottomPosition = function getBottomPosition() {
         var header = this.wrapper.childNodes[0];
+        var headerStyle = window.getComputedStyle(header);
         var wrapperStyle = window.getComputedStyle(this.wrapper);
-        var headerHeight = 48;
+        var headerHeight = parseInt(headerStyle.height, 10);
         var wrapperHeight = parseInt(wrapperStyle.height, 10);
+
         return -Math.abs(wrapperHeight - headerHeight);
     };
+
     SupportWidget.prototype.hide = function hide() {
         this.wrapper.style.display = "none";
     };
+
     SupportWidget.prototype.show = function show() {
         this.wrapper.style.display = "block";
     };
+
     SupportWidget.prototype.addSupportMethod = function addSupportMethod(supportMethod) {
         this.supportMethods.push(supportMethod);
     };
+
     SupportWidget.prototype.localStorageIsSupported = function localStorageIsSupported() {
         try {
             window.localStorage.setItem("test", true);
             window.localStorage.removeItem("test");
+
             return true;
         } catch(e) {
             return false;
         }
     };
+
     SupportWidget.prototype.initLocalStorage = function initLocalStorage() {
         if (!this.localStorageIsSupported()) return;
         if (!window.localStorage.getItem(this.STORAGE_KEY)) {
             this.saveStateToLocalStorage();
         }
     };
+
     SupportWidget.prototype.getStateFromLocalStorage = function getStateFromLocalStorage() {
         if (!this.localStorageIsSupported()) return;
         return JSON.parse(window.localStorage.getItem(this.STORAGE_KEY));
     }
+
     SupportWidget.prototype.saveStateToLocalStorage = function getStateFromLocalStorage() {
         if (!this.localStorageIsSupported()) return;
         window.localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.state))
     }
+
     SupportWidget.prototype.init = function init() {
         this.initLocalStorage();
         this.state = this.getStateFromLocalStorage();
@@ -212,16 +252,20 @@ if (typeof Object.assign !== "function") {
         this.wrapper.style.bottom = this.state.isMinimized ? this.getBottomPosition() + "px" : 0;
         this.wrapper.style.visibility = "visible";
     };
+
     function injectDirectlyRTM() {
         var namespace = "DirectlyRTM";
         var head = document.getElementsByTagName("script")[0];
         var script = document.createElement("script");
+
         script.id = "directlyRTMScript";
         script.src = "https://www.directly.com/widgets/rtm/embed.js";
         script.async = 1;
+
         window[namespace] = window[namespace] || function () {
             (window[namespace].cq = window[namespace].cq || []).push(arguments);
         };
+
         if (document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive") {
             head.parentNode.insertBefore(script, head);
         } else if (window.addEventListener) {
@@ -234,8 +278,9 @@ if (typeof Object.assign !== "function") {
             });
         }
     }
+
     var widget = new SupportWidget({
-        shouldStartMinimized: false,
+        shouldStartMinimized: true,
         widgetTitle: {
             maximized: "Talk to us",
             minimized: "Talk to our artists",
@@ -252,8 +297,9 @@ if (typeof Object.assign !== "function") {
             widget.hide();
         },
     });
+
     injectDirectlyRTM();
-    DirectlyRTM("config", { id: "8aa1494e63af23810163d5f15c123d09", metadata:{"Type":"Onboarding", "URL": window.location.href, "Source":{"Type":"Onboarding"} } });
+    DirectlyRTM("config", { id: "8a28122f5c0b6124015c0cc2adaa1bea" });
     DirectlyRTM("onNavigate", function(data) {
         if (data.path === "/minimized") {
             widget.show();
@@ -261,7 +307,7 @@ if (typeof Object.assign !== "function") {
     });
     widget.init();
 }(window, document));
-</script>
+                                                     
 </body>
 </html>
 
