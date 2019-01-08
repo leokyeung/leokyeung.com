@@ -137,7 +137,7 @@ if (typeof Object.assign !== "function") {
         item.style.listStyleType = "none";
         if (options.isNew) {
             var newBadge = document.createElement("span");
-            var newBadgeText = document.createTextNode("Novo");
+            var newBadgeText = document.createTextNode("Nuevo");
             newBadge.style.backgroundColor = "#fc0";
             newBadge.style.borderRadius = "5px";
             newBadge.style.color = "#060500";
@@ -254,14 +254,14 @@ if (typeof Object.assign !== "function") {
     var widget = new SupportWidget({
         shouldStartMinimized: false,
         widgetTitle: {
-            maximized: "Fale conosco",
-            minimized: "Fale com nossos artistas",
+            maximized: "Hable con nosotros",
+            minimized: "Hable con nuestros artistas",
         },
     });
     widget.addSupportMethod({
-        title: "Fale com um artista CD Baby",
-        description: "Receba conselhos rápidos e especializados de artistas CD Baby ao assinar seus lançamentos",
-        footnote: "Os artistas não são funcionários da CD Baby. Tempo estimado de resposta: 3 minutos",
+        title: "Hable con un artista de CD Baby",
+        description: "Obtenga consejos rápidos y expertos de artistas de CD Baby al registrar sus publicaciones",
+        footnote: "Los artistas no son empleados de CD Baby. Tiempo estimado de respuesta: 3 minutos",
         isNew: true,
         isShown: true,
         onClick: function() {
@@ -270,7 +270,7 @@ if (typeof Object.assign !== "function") {
         },
     });
     injectDirectlyRTM();
-    DirectlyRTM("config", { id: "8a28122f5c0b6124015c0cc2adaa1bea", metadata:{"Type":"Centro de ajuda", "URL": window.location.href, "Source":{"Type":"Help Center"} } });
+    DirectlyRTM("config", { id: "8a28122f5c0b6124015c0cc2adaa1bea", metadata:{"Type":"Centro de ayuda", "URL": window.location.href, "Source":{"Type":"Help Center"} } });
     DirectlyRTM("onNavigate", function(data) {
         if (data.path === "/minimized") {
             widget.show();
@@ -278,7 +278,7 @@ if (typeof Object.assign !== "function") {
     });
     widget.init();
 }(window, document));
-</script> 
+</script>
   
 </body>
 </html>
