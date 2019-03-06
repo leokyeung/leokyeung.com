@@ -1,65 +1,77 @@
 <!DOCTYPE html>
 <html>
-  
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <head>
+        <title>Testing out icon look-and-feel change</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       
+        <script>
+            /* BEGIN TEST SCRIPT */
+            var initDirectly = function() {
+                $("<style type='text/css'>#rtm_icon{background-color:#F35321;color:#fff;font-family:husqvarnaGothicLight;font-size:15px;padding:5px 13px;position:fixed;z-index:2000;left:0;top:66%;transform-origin:left bottom 0;transform:rotate(90deg);cursor:pointer;}</style>").appendTo("head");
 
-    <!-- Title -->
-    <title>Test Page</title>
+                $('body').append('<div id="rtm_icon">Ask our experts</div>');
+                var rtm_icon = $('#rtm_icon');
+                var rtm_init = false;
+                var current_path = null;
+                rtm_icon.click(function(event) {
+                    if (! rtm_init) {
+                        //console.log('initializing rtm widget');
+                        DirectlyRTM("onNavigate", function(path) {
+                            //console.log('navigating to '+path.path);
+                            if (path.path === '/minimized') {
+                                rtm_icon.show();
+                            } else {
+                                current_path = path.path;
+                                rtm_icon.hide();
+                            }
+                        });
+                        rtm_init = true;
+                    }
+                    if (!current_path) {
+                        DirectlyRTM("openAskForm");
+                    } else {
+                        DirectlyRTM("navigate", current_path);
+                    }
+                    rtm_icon.hide();
+                })
+            }
 
-    <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+            $(document).ready(function() {
+                $("<style type='text/css'>.directly-rtm {left:0!important;right:auto!important;}.directly-rtm.is-minimized {display:none!important;}</style>").appendTo("head");
 
-    <!-- Core Stylesheet -->
-    <link href="style.css" rel="stylesheet">
+                setTimeout(initDirectly, 5000);
+            })
+            /* END TEST SCRIPT */
+        </script>
+    </head>
+    <body>
+        <h1>Custom icon test</h1>
+        <div style="height: 10000px;"></div>
 
-    <!-- Responsive CSS -->
-    <link href="css/responsive/responsive.css" rel="stylesheet">
-  
-    <style>
-@media (min-width: 668px) {
-  .directly-rtm,
-  .directly-rtm.is-minimized {
-      right: 100px !important;
-      z-index:0 !important;
-   }
-}    
-  </style>
-  
-<!-- Start of directly9999 Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=f5282799-5d2b-4131-bbb9-6b94f9cd1662"> </script>
-<!-- End of directly9999 Zendesk Widget script -->
-  
-</head>
-<body>
-  
-<script>
-    (function(d, i, r, e, c, t, l, y) {
-        i[r] = i[r] || function () {
-            (i[r].cq = i[r].cq || []).push(arguments)
-        };
-        l = d.createElement("script");
-        l.id = "directlyRTMScript";
-        l.src = e;
-        l.async = 1;
-        y = d.head || d.getElementsByTagName("head")[0];
-        if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
-            y.appendChild(l);
-        } else if (i.addEventListener) {
-            i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
-        } else {
-            i.attachEvent("onload", function() { y.appendChild(l); });
-        }
-    })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
-    DirectlyRTM("config",{id: "2c99834e68147dcd01682ec33fe726b0", metadata:{"Brand":"Husqvarna Ecommerce", "rtm":{"returnUrl":"https://shop.husqvarna.com/", "URL": window.location.href }} });
-</script>
+        <script>
+            (function(d, i, r, e, c, t, l, y) {
+                i[r] = i[r] || function () {
+                    (i[r].cq = i[r].cq || []).push(arguments)
+                };
+                l = d.createElement("script");
+                l.id = "directlyRTMScript";
+                l.src = e;
+                l.async = 1;
+                y = d.head || d.getElementsByTagName("head")[0];
+                if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+                    y.appendChild(l);
+                } else if (i.addEventListener) {
+                    i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+                } else {
+                    i.attachEvent("onload", function() { y.appendChild(l); });
+                }
+            })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
+            DirectlyRTM("config", {id: "2c99834e68147dcd01681ef24a246882"});
 
+            // husq
+            //DirectlyRTM("config",{ id: "2c99834e68147dcd01682eb920e2241b" });
 
-
-  
-</body>
+        </script>
+    </body>
 </html>
+
