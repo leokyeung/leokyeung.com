@@ -3,48 +3,13 @@
         <title>Testing out icon look-and-feel change</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
        
-        <script>
-            /* BEGIN TEST SCRIPT */
-            var initDirectly = function() {
-                var rtm_icon = $('#rtm_icon');
-                var current_path = null;
-
-                DirectlyRTM("onNavigate", function(path) {
-                    //console.log('navigating to '+path.path);
-                    if (path.path === '/minimized') {
-                        rtm_icon.show();
-                    } else {
-                        current_path = path.path;
-                        rtm_icon.hide();
-                    }
-                });
-                rtm_icon.click(function(event) {
-                    if (!current_path) {
-                        DirectlyRTM("openAskForm");
-                    } else {
-                        DirectlyRTM("navigate", current_path);
-                    }
-                    rtm_icon.hide();
-                })
-                if ($(".directly-rtm.is-minimized").length > 0) {
-                    rtm_icon.show();
-                }
-            }
-
-            $(document).ready(function() {
-                $("<style type='text/css'>.directly-rtm {left:0!important;right:auto!important;}.directly-rtm.is-minimized {display:none!important;}</style>").appendTo("head");
-                $("<style type='text/css'>#rtm_icon{background-color:#F35321;color:#fff;font-family:husqvarnaGothicLight;font-size:15px;padding:5px 13px;position:fixed;z-index:2000;left:0;top:66%;transform-origin:left bottom 0;transform:rotate(90deg);cursor:pointer;}</style>").appendTo("head");
-
-                $('body').append('<div id="rtm_icon" style="display:none;">Ask our experts</div>');
-
-                setTimeout(initDirectly, 5000);
-            })
-            /* END TEST SCRIPT */
-        </script>
+<script>
+    var initDirectly=function(){var t=$("#rtm_tab");setTimeout(function(){let e=i()?"":"display:none;";$("body").append('<div id="rtm_tab" style="'+e+'">Ask our experts</div>'),(t=$("#rtm_tab")).click(function(t){DirectlyRTM("openAskForm")})},3e4);var i=function(){return $(".directly-rtm").hasClass("is-hidden")};DirectlyRTM("onNavigate",function(e){if(t.hide(),"/minimized"===e.path){var n=0,o=function(){n++,$(".directly-rtm").hasClass("is-minimized")?setTimeout(function(){i()&&t.fadeIn(100)},300):n<100&&setTimeout(o,50)};o()}})};$(document).ready(function(){$("<style type='text/css'>.directly-rtm {left:0!important;right:auto!important;}.directly-rtm.is-minimized.hide-minimized {display:none!important;}</style>").appendTo("head"),$("<style type='text/css'>#rtm_tab{background-color:#F35321;color:#fff;font-family:husqvarnaGothicLight;font-size:15px;padding:5px 13px;position:fixed;z-index:2000;left:0;top:82%;transform-origin:left top 0;transform:rotate(-90deg);cursor:pointer;}</style>").appendTo("head"),initDirectly()});
+</script>
+        
     </head>
     <body>
-        <h1>Custom icon test</h1>
-        <div style="height: 10000px;"></div>
+    
 
         <script>
             (function(d, i, r, e, c, t, l, y) {
