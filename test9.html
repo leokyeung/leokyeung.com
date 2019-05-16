@@ -3,9 +3,7 @@
         <title>Testing out icon look-and-feel change</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
        
-<script>
-    var initDirectly=function(){var t=$("#rtm_tab");setTimeout(function(){let e=i()?"":"display:none;";$("body").append('<div id="rtm_tab" style="'+e+'">Ask our experts</div>'),(t=$("#rtm_tab")).click(function(t){DirectlyRTM("openAskForm")})},3e4);var i=function(){return $(".directly-rtm").hasClass("is-hidden")};DirectlyRTM("onNavigate",function(e){if(t.hide(),"/minimized"===e.path){var n=0,o=function(){n++,$(".directly-rtm").hasClass("is-minimized")?setTimeout(function(){i()&&t.fadeIn(100)},300):n<100&&setTimeout(o,50)};o()}})};$(document).ready(function(){$("<style type='text/css'>.directly-rtm {left:0!important;right:auto!important;}.directly-rtm.is-minimized.hide-minimized {display:none!important;}</style>").appendTo("head"),$("<style type='text/css'>#rtm_tab{background-color:#F35321;color:#fff;font-family:husqvarnaGothicLight;font-size:15px;padding:5px 13px;position:fixed;z-index:2000;left:0;top:82%;transform-origin:left top 0;transform:rotate(-90deg);cursor:pointer;}</style>").appendTo("head"),initDirectly()});
-</script>
+
         
     </head>
     <body>
@@ -29,7 +27,7 @@
                     i.attachEvent("onload", function() { y.appendChild(l); });
                 }
             })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
-            DirectlyRTM("config", {id: "2c99829d66c31ef70166d161240e255b"});
+            DirectlyRTM("config", {id: "8a28122f58b4b6fd0158b617384307ae"});
 
 
         </script>
