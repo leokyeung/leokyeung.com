@@ -9,37 +9,57 @@
     <link rel="stylesheet" type="text/css" href="css/rtm.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Husq</title>
-    
-    
-    <style>
-        .directly-rtm.is-minimized {
-            right: -22px;
-        }
-    </style>
+
 </head>
 <body>
     
 <script>
-    (function(d, i, r, e, c, t, l, y) {
-        i[r] = i[r] || function () {
-            (i[r].cq = i[r].cq || []).push(arguments)
-        };
-        l = d.createElement("script");
-        l.id = "directlyRTMScript";
-        l.src = e;
-        l.async = 1;
-        y = d.head || d.getElementsByTagName("head")[0];
-        if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
-            y.appendChild(l);
-        } else if (i.addEventListener) {
-            i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
-        } else {
-            i.attachEvent("onload", function() { y.appendChild(l); });
+    var initDirectly = function() {
+        var rtm_tab = $('#rtm_tab');
+        
+        setTimeout(function() {
+            let style = should_show_tab() ? '' : 'display:none;';
+            $('body').append('<div id="rtm_tab" style="'+style+'">Ask our CARE experts</div>');
+            rtm_tab = $('#rtm_tab');
+            rtm_tab.click(function(event) {
+                DirectlyRTM("openAskForm"); 
+            });
+        }, 10000);
+        var hide_tab = function() {
+            rtm_tab.hide();
         }
-    })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
-    DirectlyRTM("config",{id: "2c9985ab65a6de780165b0d073371208" });
+        var show_tab = function() {
+            rtm_tab.fadeIn(100);
+        }
+        var should_show_tab = function() {
+            return $('.directly-rtm').hasClass('is-hidden');                    
+        }
+        DirectlyRTM("onNavigate", function(path) {
+            hide_tab();
+            if (path.path === '/minimized') {
+                var count = 0;
+                var checkIsMinimized = function() {
+                    count++;
+                    if ($('.directly-rtm').hasClass('is-minimized')) {
+                        setTimeout(function() {
+                            if (should_show_tab()) {
+                                show_tab();
+                            }
+                        }, 300)
+                    } else if (count < 100) {
+                        setTimeout(checkIsMinimized, 50);
+                    }
+                }
+                checkIsMinimized();
+            }
+        });
+    }
+    $(document).ready(function() {
+        $("<style type='text/css'>.directly-rtm {left:0!important;right:auto!important;}.directly-rtm.is-minimized.hide-minimized {display:none!important;}</style>").appendTo("head");
+        $("<style type='text/css'>#rtm_tab{background-color:#70B51A;color:#fff;font-family:husqvarnaGothicLight;font-size:15px;padding:5px 13px;position:fixed;z-index:2000;left:0;top:82%;transform-origin:left top 0;transform:rotate(-90deg);cursor:pointer;}</style>").appendTo("head");
+        initDirectly();
+    })
 </script>
-
 
 
 
