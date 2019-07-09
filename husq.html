@@ -9,60 +9,18 @@
     <link rel="stylesheet" type="text/css" href="css/rtm.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Husq</title>
+    
+    <style>
+    .directly-rtm.is-minimized {
+        right: -12.5px;
+  }
+</style>
 
 </head>
 <body>
     
-<script>
-    var initDirectly = function() {
-        var rtm_tab = $('#rtm_tab');
-
-        setTimeout(function() {
-            let style = should_show_tab() ? '' : 'display:none;';
-            $('body').append('<div id="rtm_tab" style="'+style+'">Ask our CARE experts</div>');
-            rtm_tab = $('#rtm_tab');
-            rtm_tab.click(function(event) {
-                DirectlyRTM("openAskForm");
-            });
-        }, 10000);
-        var hide_tab = function() {
-            rtm_tab.hide();
-        }
-        var show_tab = function() {
-            rtm_tab.fadeIn(100);
-        }
-        var should_show_tab = function() {
-            return $('.directly-rtm').hasClass('is-hidden');
-        }
-        DirectlyRTM("onNavigate", function(path) {
-            hide_tab();
-            if (path.path === '/minimized') {
-                var count = 0;
-                var checkIsMinimized = function() {
-                    count++;
-                    if ($('.directly-rtm').hasClass('is-minimized')) {
-                        setTimeout(function() {
-                            if (should_show_tab()) {
-                                show_tab();
-                            }
-                        }, 300)
-                    } else if (count < 100) {
-                        setTimeout(checkIsMinimized, 50);
-                    }
-                }
-                checkIsMinimized();
-            }
-        });
-    }
-    $(document).ready(function() {
-        $("<style type='text/css'>.directly-rtm {left:0!important;right:auto!important;}.directly-rtm.is-minimized.hide-minimized {display:none!important;}</style>").appendTo("head");
-        $("<style type='text/css'>#rtm_tab{background-color:#70B51A;color:#fff;font-family:husqvarnaGothicLight;font-size:15px;padding:5px 13px;position:fixed;z-index:2000;left:0;top:82%;transform-origin:left top 0;transform:rotate(-90deg);cursor:pointer;}</style>").appendTo("head");
-        initDirectly();
-    })
-</script>
 
 <script>
-    var rtmId = "2c99834e68147dcd01682ec33fe726b0";
     (function(d, i, r, e, c, t, l, y) {
         i[r] = i[r] || function () {
             (i[r].cq = i[r].cq || []).push(arguments)
@@ -80,16 +38,7 @@
             i.attachEvent("onload", function() { y.appendChild(l); });
         }
     })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
-    DirectlyRTM("config",{
-        id: rtmId,
-        metadata:{
-            Brand:"Husqvarna Ecommerce",
-            rtm:{
-                returnUrl:"https://shop.husqvarna.com/us/home",
-                URL:window.location.href
-            }
-        }
-    });
+    DirectlyRTM("config",{id:"8a09253a60de82db0160e2496aeb38da", labels:{askBubble:"Ask an \nAutomower\u00ae Pro" },metadata:{Brand:"Automower",rtm:{returnUrl:"https://www.husqvarna.com/us/products/robotic-lawn-mowers/",URL:window.location.href}}});
 </script>
 
 
