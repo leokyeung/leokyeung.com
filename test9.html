@@ -8,7 +8,7 @@
 
     <a href="javascript:DirectlyRTM('openAskForm');">Execute JavaScript</a>
         
-  <script>
+<script>
 if (typeof Object.assign !== "function") {
 Object.assign = function(target) {
     "use strict";
@@ -305,7 +305,7 @@ widget.addSupportMethod({
 });
 
 injectDirectlyRTM();
-DirectlyRTM("config", { id: "8a28122f5c0b6124015c0cc2adaa1bea" });
+DirectlyRTM("config", { id: "8a28122f5c0b6124015c0cc2adaa1bea", metadata:{"Type":"Help Center", "URL": window.location.href, "Source":{"Type":"Support"} } });
 DirectlyRTM("onNavigate", function(data) {
     if (data.path === "/minimized") {
         widget.show();
