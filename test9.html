@@ -96,13 +96,16 @@
         return header;
     };
 
-    SupportWidget.prototype.buildWidgetContent = function buildWidgetContent() {
+  SupportWidget.prototype.buildWidgetContent = function buildWidgetContent() {
         var content = document.createElement("ul");
         var items = this.supportMethods.forEach(function(itemOptions) {
             if (itemOptions.isShown) {
                 content.appendChild(this.buildWidgetItem(itemOptions));
             }
         }.bind(this));
+
+        content.style.padding = "0";
+        content.style.marginTop = "0";
 
         return content;
     };
