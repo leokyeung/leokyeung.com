@@ -32,9 +32,9 @@
     var queryParams = new URLSearchParams(window.location.search);
     var source = queryParams.get("source");
     DirectlyRTM("set", "metadata", { 
-        "private": {
+       
             "source": source
-        }
+    
     });
     DirectlyRTM("minimize");
     if (source) {
