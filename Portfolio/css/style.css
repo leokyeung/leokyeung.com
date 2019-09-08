@@ -204,3 +204,196 @@ h3 {
          Team
 ======================*/
 
+.team-member {
+    margin: 0 15px;
+}
+
+.team-member-info {
+    padding: 10px 0 30px 0;
+}
+
+h4.team-member-name {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-top: 20px;
+}
+
+h4.team-member-designation {
+    color: #34c6d3;
+    font-size: 15px;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* ===================
+         Social Icon
+======================*/
+.social-list {
+    padding-left: 0;
+}
+
+.social-list li {
+    list-style: none;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 6px;
+    margin-top: 10px;
+}
+
+.social-icon i {
+    font-size: 17px;
+}
+
+.icon-gray i {
+    color: #64707b;
+}
+
+.social-icon i:hover {
+    color: #34c6d3;
+}
+
+.icon-white i{
+    color:white;
+}
+
+/* ===================
+         Contact
+======================*/
+
+footer {
+    margin-top: 100px;
+    background-color: #41464b;
+    padding-top: 30px;
+    border-top: 5px solid rgb(0, 0,0,0.1);
+}
+
+#contact-left h3, #contact-right h3{
+    color: #fff;
+    font-size: 27px;
+    font-weight: 400;
+}
+
+#contact-left p {
+    color:white;
+    margin-bottom: 30px;
+}
+
+#contact-info {
+    background-image: url("../img/world-map.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+address{
+    color: white;
+}
+
+address strong, #phone-fax-email strong{
+    letter-spacing: 1px;
+}
+
+form .form-control {
+    background: transparent;
+    border-radius: 0;
+    border-color: white;
+    font-size: 17px;
+    font-weight: 300;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    color: white;
+
+}
+
+/* ===================
+         Footer
+======================*/
+
+#footer-bottom {
+    background-color: rgb(0, 0,0,0.1);
+    padding: 30px 0;
+    margin-top: 60px;
+}
+
+#footer-copyrights p {
+    margin: 0;
+    color: #fff;
+    
+}
+
+#footer-menu {
+    float: left;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+#footer-menu ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+}
+
+#footer-menu ul li {
+    display: inline-block;
+}
+
+#footer-menu a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+#footer-menu a:hover {
+    color: #34c6d3;
+}
+
+/* ===================
+         Navigation
+======================*/
+
+.navbar {
+    padding: 20px 0;
+    
+}
+
+.leo-top-nav {
+    background: rgb(0, 0, 0, 0.7);
+    padding: 7px 0;
+}
+
+.leo-nav-wrapper {
+    padding: 0 55px;
+}
+
+.navbar-nav { 
+    float: right;
+}
+
+.navbar-nav > li > a {
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.navbar-nav > li > a:focus, .navbar-nav > li > a:hover {
+    background: none;
+    color: #34c6d3;
+}
+
+.navbar-toggle {
+    background-color: rgb(0, 0, 0, 0.1);
+    border: 1px solid #fff;
+    border-radius: 0;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #fff;
+}
