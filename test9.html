@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leo's Testing Page </title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-       
+    <style>
+    .directly-rtm {
+        display: none;
+    }
+    </style>
 
     </head>
     <body>
 
     <a href="javascript:DirectlyRTM('openAskForm');">Execute JavaScript Here</a>
         
+  <script>
+    setTimeout(function() {
+        var x = document.getElementsByClassName("directly-rtm");
+        x[0].style.display = "block";
+    }, 5000);
+</script>
 <script>
     (function(d, i, r, e, c, t, l, y) {
         i[r] = i[r] || function () {
