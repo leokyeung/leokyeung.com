@@ -10,19 +10,19 @@
     <body>
 
     <a href="javascript:DirectlyRTM('openAskForm');">Execute JavaScript Here</a>
-    <style>
+<style>
     .directly-rtm {
         display: none;
     }
-    </style>
-  <script>
-    setTimeout(function() {
+</style>
+<script>
+    setTimeout(function () {
         var x = document.getElementsByClassName("directly-rtm");
         x[0].style.display = "block";
     }, 5000);
 </script>
 <script>
-    (function(d, i, r, e, c, t, l, y) {
+    (function (d, i, r, e, c, t, l, y) {
         i[r] = i[r] || function () {
             (i[r].cq = i[r].cq || []).push(arguments)
         };
@@ -34,12 +34,12 @@
         if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
             y.appendChild(l);
         } else if (i.addEventListener) {
-            i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+            i.addEventListener("DOMContentLoaded", function () { y.appendChild(l); });
         } else {
-            i.attachEvent("onload", function() { y.appendChild(l); });
+            i.attachEvent("onload", function () { y.appendChild(l); });
         }
     })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
-    DirectlyRTM("config",{id: "2c9983186d3837f8016d4081bcd52f25" });
+    DirectlyRTM("config", { id: "2c9983186d3837f8016d4081bcd52f25", metadata:{Source:"pre_signup",URL:window.location.href} });
 </script>
 
 
