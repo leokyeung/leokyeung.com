@@ -11,7 +11,7 @@
         <h1> Post Sign Up Flow (requires ?source=abc in URL ) </h1>
    
 
-   <script>
+<script>
     (function (d, i, r, e, c, t, l, y) {
         i[r] = i[r] || function () {
             (i[r].cq = i[r].cq || []).push(arguments)
@@ -29,7 +29,12 @@
             i.attachEvent("onload", function () { y.appendChild(l); });
         }
     })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
-    DirectlyRTM("config", { id: "2c9983186d3837f8016d4097f69831cb"});
+    DirectlyRTM("config", { id: "2c9983186d3837f8016d4097f69831cb", 
+            i18n: {
+                en: {
+                    placeholder: {
+                        "type_your_email_address": "Type your fleet email address here",
+                    }}}});
 </script>
 <script>
     var queryParams = new URLSearchParams(window.location.search);
