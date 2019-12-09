@@ -1,5 +1,0 @@
-<option value="" selected disabled hidden>Please Select</option>
-<option value="Employee Central">SAP SuccessFactors Employee Central</option>
-<option value="SAP SuccessFactors Learning LMS Module">SAP SuccessFactors Learning (LMS) Module</option>
-<option value="SAP SuccessFactors Onboarding">SAP SuccessFactors Onboarding</option>
-<option value="SAP SuccessFactors Recruiting">SAP SuccessFactors Recruiting</option>

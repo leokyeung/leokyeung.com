@@ -1,1 +1,0 @@
-<option value="SAP Adaptive Server Enterprise">SAP Adaptive Server Enterprise</option>

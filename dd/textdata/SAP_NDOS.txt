@@ -1,3 +1,0 @@
-<option value="" selected disabled hidden>Please Select</option>
-<option value="SAP NetWeaver Databases - Oracle Database">Oracle Database</option>
-<option value="SAP ASE, ERP Enablement">SAP ASE - ERP enablement</option>

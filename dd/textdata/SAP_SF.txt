@@ -1,4 +1,0 @@
-<option value="SFEC">SAP SuccessFactors Employee Central</option>
-<option value="SFLMS">SAP SuccessFactors Learning (LMS) Module</option>
-<option value="SFO">SAP SuccessFactors Onboarding</option>
-<option value="SFR">SAP SuccessFactors Recruiting</option>
