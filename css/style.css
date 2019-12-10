@@ -135,11 +135,16 @@ h3 {
 }
 
 /* About Section */
-
+.heading-secondary{
+    text-transform: uppercase;
+}
 .u-center-text {
     text-align: center;
 }
 
 .u-margin-bottom-big {
     margin-bottom: 8rem;
+}
+.u-margin-bottom-small {
+    margin-bottom: 1.5rem;
 }
