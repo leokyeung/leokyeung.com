@@ -11,16 +11,17 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/icofont/icofont.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
     <header>
-        <nav class="navbar leo-top-nav navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-fixed-top" role="navigation">
             <div class="container-fluid">
 
                 <div class="leo-nav-wrapper">
@@ -33,16 +34,16 @@
                             <span class="icon-bar"></span>
                         </button>
 
-                        <a class="navbar-brand" href="#home">
-                            <img src="img/favicon.ico" alt="logo">
+                        <a class="navbar-brand" href="https://leo-resume.s3-us-west-1.amazonaws.com/Leo+Yeung+Resume.pdf" target="_blank">
+                            <img class="head-logo" src="img/favicon.ico" alt="logo">
                         </a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="leo-menu">
                         <ul class="nav navbar-nav">
-                            <li><a href="#home">About</a></li>
-                            <li><a href="#projects">Projects</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a class="smooth-scroll" href="#about">About</a></li>
+                            <li><a class="smooth-scroll" href="#features">Skills</a></li>
+                            <li><a class="smooth-scroll" href="#projects">Projects</a></li>
                         </ul>
                     </div>
                 </div>
@@ -56,9 +57,9 @@
             <div id="home-content-box">
 
                 <div id="home-content-box-inner">
-                    
+
                     <div id="profile-picture">
-                        <img id="profile" src="./img/profile.jpg"/>
+                        <img id="profile" src="./img/profile.jpg" />
                     </div>
 
                     <div id="home-heading" class="animated zoomIn">
@@ -66,7 +67,9 @@
                     </div>
 
                     <div id="home-btn">
-                        <a href="https://leo-resume.s3-us-west-1.amazonaws.com/Leo+Yeung+Resume.pdf" target="_blank"><button type="button" class="btn btn-outline-primary animated zoomIn">View Leo's Resume</button></a>
+                        <a href="https://leo-resume.s3-us-west-1.amazonaws.com/Leo+Yeung+Resume.pdf"
+                            target="_blank"><button type="button" class="btn btn-outline-primary animated zoomIn">View
+                                Leo's Resume</button></a>
                     </div>
 
                 </div>
@@ -76,56 +79,115 @@
 
     <section id="about">
         <div class="container">
-                <div class="u-center-text u-margin-bottom-big wow fadeInDown" data-wow-duration="0.5s" data-wow-delay=".5s">
-                        <h2 class="heading-secondary">
-                            Front End Focused
-                            <br>With Full Stack Experience
-                        </h2>
+            <div class="u-center-text u-margin-bottom-big wow fadeInDown" data-wow-duration="0.5s" data-wow-delay=".5s">
+                <h2 class="heading-secondary">
+                    Front End Focused
+                    <br>With Full Stack Experience
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-1-of-2 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay=".5s">
+                    <h3 class="u-margin-bottom-small">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    </h3>
+                    <p class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at hic odit optio sunt unde.
+                        Corporis saepe, sunt voluptates repellendus illum, esse nemo nihil facere dolore deserunt odit
+                        aliquid adipisci!
+                    </p>
+
+                    <h3 class="u-margin-bottom-small">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    </h3>
+                    <p class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at hic odit optio sunt unde.
+                        Corporis saepe, sunt voluptates repellendus illum, esse nemo nihil facere dolore deserunt odit
+                        aliquid adipisci!
+                    </p>
+
                 </div>
-                <div class="row"> 
-                    <div class="col-1-of-2">
-                        <h3 class="u-margin-bottom-small">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        </h3>
-                        <p class="paragraph">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at hic odit optio sunt unde. Corporis saepe, sunt voluptates repellendus illum, esse nemo nihil facere dolore deserunt odit aliquid adipisci!
-                        </p>
 
-                        <h3 class="u-margin-bottom-small">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            </h3>
-                            <p class="paragraph">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at hic odit optio sunt unde. Corporis saepe, sunt voluptates repellendus illum, esse nemo nihil facere dolore deserunt odit aliquid adipisci!
-                            </p>
-
+                <div class="col-1-of-2">
+                    <div class="composition wow fadeInUp" data-wow-duration="0.5s" data-wow-delay=".5s">
+                        <img src="img/html.png" alt="HTML5" class="icon p1" />
+                        <img src="img/css.png" alt="CSS" class="icon p2" />
+                        <img src="img/js.png" alt="JS" class="icon p3" />
+                        <img src="img/nodejs.png" alt="NODE" class="icon p4" />
+                        <img src="img/react.png" alt="REACT" class="icon p5" />
                     </div>
-
-                    <div class="col-1-of-2">
-
-    
-                        </div>
-
-
                 </div>
+
+
+            </div>
         </div>
-
-
-        
-
     </section>
 
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+    <section id="features">
+        <div class="row wow zoomIn" data-wow-duration="0.5s" data-wow-delay=".5s">
+
+            <div class="column ">
+                <div class="card">
+                    <i class="icofont-interface icofont-3x"></i>
+                    <h3 class="u-margin-bottom-small">Front End</h3>
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS</li>
+                        <li>JavsScript</li>
+                        <li>React</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                        <i class="icofont-server icofont-3x"></i>
+                    <h3>Backend / API</h3>
+                    <ul>
+                        <li>NodeJS</li>
+                        <li>Express</li>
+                        <li>REST</li>
+                        <li>SOAP</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                        <i class="icofont-database icofont-3x"></i>
+                    <h3>Database</h3>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                        <i class="icofont-live-support icofont-3x"></i>
+                    <h3>Helpdesk</h3>
+                    <ul>
+                        <li>Salesforce</li>
+                        <li>Zendesk</li>
+                        <li>Sibel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
 
 
-	<!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
     <script src="js/wow.min.js"></script>
     <script src="js/custom.js"></script>
 </body>

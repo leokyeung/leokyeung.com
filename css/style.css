@@ -16,6 +16,14 @@ p {
 h3 {
     color: #41464b;
 }
+
+.head-logo:hover {
+    transform: scale(1.2);
+    cursor: default;
+}
+.head-logo {
+    transition: all .3s;
+}
 /*Home Section */
 
 #home {
@@ -35,7 +43,7 @@ h3 {
     display: table;
 }
 
-#profile-picture img:first-child{
+#profile-picture img:first-child {
     border-radius: 50%;
     width: 200px;
 }
@@ -65,14 +73,17 @@ h3 {
     font-weight: 400;
     margin: 20px 0 20px 0;
 }
-.btn {
-    padding: 10px 20px; 
-    color: black;
-    box-shadow: 0 4px 8px 0 rgba(7, 1, 1, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
 .btn:hover {
-    color: darkgrey; 
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.21);
+}
+
+.btn {
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(7, 1, 1, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #home-heading {
@@ -84,26 +95,26 @@ h3 {
     animation-delay: 15.5s;
     animation-duration: 1s;
 }
+
 /* ===================
          Navigation
 ======================*/
 
-.navbar .leo-top-nav {
+.navbar {
     padding: 20px 0;
+    transition: all .5s ease-in-out;
 }
 
 .leo-top-nav {
-    background:rgb(0, 0, 0, 0.7);
+    background: rgb(0, 0, 0, 0.7);
     padding: 7px 0;
 }
-
-
 
 .leo-nav-wrapper {
     padding: 0 55px;
 }
 
-.navbar-nav { 
+.navbar-nav {
     float: right;
 }
 
@@ -116,9 +127,11 @@ h3 {
     font-size: 15px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 300;
 }
-.navbar-nav > li > a:focus, .navbar-nav > li > a:hover {
+
+.navbar-nav>li>a:focus,
+.navbar-nav>li>a:hover {
     background: none;
     color: #34c6d3;
 }
@@ -135,9 +148,10 @@ h3 {
 }
 
 /* About Section */
-.heading-secondary{
+.heading-secondary {
     text-transform: uppercase;
 }
+
 .u-center-text {
     text-align: center;
 }
@@ -145,6 +159,159 @@ h3 {
 .u-margin-bottom-big {
     margin-bottom: 8rem;
 }
+
 .u-margin-bottom-small {
     margin-bottom: 1.5rem;
+}
+
+.row {
+    max-width: 99rem;
+    margin: 0 auto;
+}
+
+.row .col-1-of-2 {
+    width: calc((100% - 5rem) / 2);
+}
+
+.row [class^="col-"] {
+    float: left;
+}
+
+.composition {
+    position: relative;
+    left: 50px;
+}
+
+.icon:hover {
+    transform: scale(1.1) translateY(0.2rem);
+    -webkit-filter: drop-shadow(1.5px 1.5px 4px #222);
+    filter: drop-shadow(1.5px 1.5px 4px #222);
+    z-index: 20;
+}
+
+.icon {
+    filter: drop-shadow(1px 1px 2px #222);
+    border-radius: 2px;
+    z-index: 10;
+    transition: all .2s;
+    position: absolute;
+}
+
+.p1 {
+    width: 20%;
+    right: 176px;
+}
+
+.p2 {
+    width: 20%;
+    top: 126px;
+    right: 264px;
+}
+
+.p3 {
+    width: 25%;
+    top: 113px;
+    right: 65px;
+}
+
+.p4 {
+    width: 20%;
+    top: 251px;
+    right: 5px;
+
+}
+
+.p5 {
+    width: 20%;
+    top: 259px;
+    right: 330px;
+}
+
+/* Features */
+#features {
+    padding: 20rem 0;
+    margin-top: 150px;
+    background-image: linear-gradient(to right bottom, rgba(142, 57, 153, 0.75), rgba(30, 115, 172, 0.75)), url(../img/hk.jpg);
+    background-size: cover;
+    transform: skewY(-5deg);
+}
+
+#features>* {
+    transform: skewY(5deg);
+}
+
+.column {
+    width: 25%;
+    float: left;
+    padding: 0px 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+
+/* Media Spec */
+@media only screen and (min-width : 375px) and (max-width : 667px) {
+    .composition {
+        display: none;
+    }
+
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+
+    }
+}
+.card:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    height: 250px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-radius: 3px;
+    padding: 2.5rem;
+    transition: transform .3s;
+}
+
+ul {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (min-width : 375px) and (max-width : 812px) and (-webkit-device-pixel-ratio : 3) {
+    .composition {
+        display: none;
+    }
+
+}
+
+
+@media(max-width: 768px) {
+    .row .col-1-of-2 {
+        width: 100%
+    }
+
+    .navbar-brand {
+        padding-top: 15px;
+    }
+
+    .composition {
+        position: relative;
+        left: -120px;
+        top: 57px;
+        width: 100%;
+    }
 }
