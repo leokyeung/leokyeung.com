@@ -19,7 +19,6 @@ h3 {
 
 .head-logo:hover {
     transform: scale(1.2);
-    cursor: default;
 }
 
 .head-logo {
@@ -408,14 +407,15 @@ ul {
 
 #footer-bottom {
     background-color: #41464b;
-    padding: 30px 0;
+    padding: 35px 0;
     margin-top: 60px;
 }
 
 #footer-copyrights p {
     margin: 0;
     color: #fff;
-    
+    align-content: center;
+    text-align: center;
 }
 
 #footer-menu {
@@ -423,6 +423,8 @@ ul {
     color: #fff;
     font-size: 16px;
     font-weight: 200;
+    align-content: center;
+    text-align: center;
 }
 
 #footer-menu ul {
@@ -439,19 +441,33 @@ ul {
     color: #fff;
     font-size: 16px;
     font-weight: 300;
-    margin: 0 10px;
+    margin: 0 13px;
     text-decoration: none;
 }
 
 #footer-menu a:hover {
     color: #34c6d3;
 }
+
+#footer-icons {
+    align-content: center;
+    text-align: center;
+}
 .icofont-linkedin {
     color: #0077B5;
+    margin-right: 30px;
+}
+
+.icofont-linkedin:hover {
+    color: white;
 }
 
 .fa-github {
     color: white;
+}
+
+.fa-github:hover {
+    color: black;
 }
 
 
