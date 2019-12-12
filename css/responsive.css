@@ -1,0 +1,54 @@
+/* Medium Device */
+@media (min-width: 990px) and (max-width: 1199px) {
+
+}
+
+
+/* Small Device */
+@media (min-width: 768px) and (max-width: 989px) {
+    .composition {
+        display: none;
+    }
+    .navbar {
+        background: rgba(0,0,0,0.7);
+        padding: 0;
+    }
+    .navbar-brand {
+        padding-top: 13px;
+    }
+    .navbar-nav {
+        float: left;
+    }
+    .leo-nav-wrapper {
+        padding: 0;
+    }
+}
+
+/* Extra small device */
+@media (max-width: 772px) {
+    .row .col-1-of-2 {
+        width: 100%
+    }
+
+    .navbar-brand {
+        padding-top: 15px;
+    }
+
+    .composition {
+        position: relative;
+        left: -120px;
+        top: 57px;
+        width: 100%;
+    }
+}
+
+/* Extra small device */
+@media (max-width: 480px) {
+
+}
+
+/* Extra small device */
+@media (max-width: 320px) {
+
+}
+

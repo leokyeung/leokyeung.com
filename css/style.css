@@ -241,7 +241,7 @@ h3 {
 /* Features */
 #features {
     padding: 20rem 0;
-    margin-top: 150px;
+    margin-top: 200px;
     margin-bottom: 90px;
     background-image: linear-gradient(to right bottom, rgba(142, 57, 153, 0.75), rgba(30, 115, 172, 0.75)), url(../img/hk.jpg);
     background-size: cover;
@@ -263,6 +263,7 @@ h3 {
     display: table;
     clear: both;
 }
+
 .row1:after {
     content: "";
     display: table;
@@ -311,7 +312,7 @@ ul {
 
 /* Projects */
 .row1 {
-    max-width: 85%;
+    max-width: 100%;
     margin: 0 auto;
 
 }
@@ -371,20 +372,20 @@ ul {
 
 
 .col-1-of-3:nth-child(1) .box:before,
-.col-1-of-3:nth-child(1) .box:after{
-    background: linear-gradient(235deg, #89ff00,#010615,#00bcd4);
+.col-1-of-3:nth-child(1) .box:after {
+    background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
 
 }
 
 .col-1-of-3:nth-child(2) .box:before,
 .col-1-of-3:nth-child(2) .box:after {
-    background: linear-gradient(235deg, #ff005e,#010615,#fbff00);
+    background: linear-gradient(235deg, #ff005e, #010615, #fbff00);
 
 }
 
 .col-1-of-3:nth-child(3) .box:before,
 .col-1-of-3:nth-child(3) .box:after {
-    background: linear-gradient(235deg, #772aff,#010615,#2196F3);
+    background: linear-gradient(235deg, #772aff, #010615, #2196F3);
 
 }
 
@@ -395,7 +396,7 @@ ul {
     width: 50%;
     height: 100%;
     display: block;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     pointer-events: none;
 }
 
@@ -403,6 +404,7 @@ ul {
     padding: 20px;
     color: #fff;
 }
+
 /* Footer */
 
 #footer-bottom {
@@ -453,6 +455,14 @@ ul {
     align-content: center;
     text-align: center;
 }
+
+.footer-ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
 .icofont-linkedin {
     color: #0077B5;
     margin-right: 30px;
@@ -468,37 +478,4 @@ ul {
 
 .fa-github:hover {
     color: black;
-}
-
-
-
-
-
-
-
-
-
-@media only screen and (min-width : 375px) and (max-width : 812px) and (-webkit-device-pixel-ratio : 3) {
-    .composition {
-        display: none;
-    }
-
-}
-
-
-@media(max-width: 768px) {
-    .row .col-1-of-2 {
-        width: 100%
-    }
-
-    .navbar-brand {
-        padding-top: 15px;
-    }
-
-    .composition {
-        position: relative;
-        left: -120px;
-        top: 57px;
-        width: 100%;
-    }
 }
