@@ -1,21 +1,90 @@
 /* Medium Device */
-@media (min-width: 990px) and (max-width: 1199px) {
+@media (max-width: 1199px) {
+    .composition {
+        position: relative;
+        left: 50px;
+    }
 
-}
+    .row .col-1-of-2 {
+        width: 100%;
+        height: 300px;
+    }
+
+    .icon{
+        float: left;
+        width: 20%;
+        top: 15px;
+        margin-right: 70px;
+    }
+
+    .p1 {
+        left: -80px;
+    }
+    .p2{
+        left: 110px;
+    }
+    .p3{
+        left: 290px;
+    }
+    .p4{
+        right: 20px;
+    }
+
+    .p5{
+        right: 210px;
+    }
+} 
 
 
 /* Small Device */
-@media (min-width: 768px) and (max-width: 989px) {
-    .composition {
-        display: none;
+@media (max-width: 989px) {
+
+    .navbar-brand {
+        padding-top: 13px;
     }
+
     .navbar {
         background: rgba(0,0,0,0.7);
         padding: 0;
     }
-    .navbar-brand {
-        padding-top: 13px;
+
+    .navbar-nav {
+        float: left;
     }
+    .leo-nav-wrapper {
+        padding: 0;
+    }
+
+    .row1 {
+        max-width: 100px;
+        margin-left: 240px;
+    
+    }
+
+    /* .icon{
+        float: left;
+        width: 20%;
+        top: 15px;
+        margin-right: 70px;
+    } */
+}
+
+/* Extra small device */
+@media (max-width: 767px) {
+    .row .col-1-of-2 {
+        width: 100%
+    }
+
+    .navbar-brand {
+        padding-top: 15px;
+    }
+
+
+    .navbar {
+        background: rgba(0,0,0,0.7);
+        padding: 0;
+    }
+
     .navbar-nav {
         float: left;
     }
@@ -25,30 +94,32 @@
 }
 
 /* Extra small device */
-@media (max-width: 772px) {
-    .row .col-1-of-2 {
-        width: 100%
-    }
-
-    .navbar-brand {
-        padding-top: 15px;
-    }
-
-    .composition {
-        position: relative;
-        left: -120px;
-        top: 57px;
-        width: 100%;
-    }
-}
-
-/* Extra small device */
 @media (max-width: 480px) {
+    .navbar {
+        background: rgba(0,0,0,0.7);
+        padding: 0;
+    }
 
+    .navbar-nav {
+        float: left;
+    }
+    .leo-nav-wrapper {
+        padding: 0;
+    }
 }
 
 /* Extra small device */
 @media (max-width: 320px) {
+    .navbar {
+        background: rgba(0,0,0,0.7);
+        padding: 0;
+    }
 
-}
+    .navbar-nav {
+        float: left;
+    }
+    .leo-nav-wrapper {
+        padding: 0;
+    }
+}   
 

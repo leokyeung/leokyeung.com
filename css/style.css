@@ -312,13 +312,12 @@ ul {
 
 /* Projects */
 .row1 {
-    max-width: 100%;
+    max-width: 99rem;
     margin: 0 auto;
-
-}
-
-.row1 [class^="col-"] {
-    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .heading-third {
@@ -326,13 +325,6 @@ ul {
     padding-top: 72px;
     padding-bottom: 10px;
 }
-
-
-.col-1-of-3 {
-    width: 30%;
-    margin: 15px;
-}
-
 
 .box {
     position: relative;
@@ -369,7 +361,11 @@ ul {
 }
 
 
-
+.col-1-of-3 {
+    width: 30%;
+    margin: 15px;
+    box-sizing: border-box;
+}
 
 .col-1-of-3:nth-child(1) .box:before,
 .col-1-of-3:nth-child(1) .box:after {
