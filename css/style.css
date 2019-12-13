@@ -275,9 +275,6 @@ h3 {
 
 /* Media Spec */
 @media only screen and (min-width : 375px) and (max-width : 667px) {
-    .composition {
-        display: none;
-    }
 
     .column {
         width: 100%;
@@ -313,8 +310,8 @@ ul {
 /* Projects */
 .row1 {
     max-width: 99rem;
-    margin: 0 auto;
-    display: flex;
+    margin: 0px auto 0px auto;
+    display:flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
