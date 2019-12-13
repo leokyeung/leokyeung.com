@@ -10,7 +10,7 @@
         height: 300px;
     }
 
-    .icon{
+    .icon {
         float: left;
         width: 20%;
         top: 15px;
@@ -20,20 +20,23 @@
     .p1 {
         left: -80px;
     }
-    .p2{
+
+    .p2 {
         left: 110px;
     }
-    .p3{
+
+    .p3 {
         left: 290px;
     }
-    .p4{
+
+    .p4 {
         right: 20px;
     }
 
-    .p5{
+    .p5 {
         right: 210px;
     }
-} 
+}
 
 
 /* Small Device */
@@ -44,25 +47,18 @@
     }
 
     .navbar {
-        background: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7);
         padding: 0;
     }
 
     .navbar-nav {
         float: left;
     }
+
     .leo-nav-wrapper {
         padding: 0;
     }
 
-    /* .row1 {
-        max-width: 100px;
-        margin-left: 189px;
-    } */
-    
-    /* .box {
-        width: 383px;
-    } */
     .col-sm-4 {
         width: 50%;
     }
@@ -70,18 +66,21 @@
     .p1 {
         left: 40px;
     }
-    .p2{
+
+    .p2 {
         left: 210px;
     }
-    .p3{
+
+    .p3 {
         left: 370px;
     }
-    .p4{
+
+    .p4 {
         top: 180px;
         right: 200px;
     }
 
-    .p5{
+    .p5 {
         top: 180px;
         right: 370px;
     }
@@ -89,7 +88,7 @@
 
 /* Extra small device */
 @media (max-width: 767px) {
-    #home-heading h3{
+    #home-heading h3 {
         font-size: 40px
     }
 
@@ -101,10 +100,6 @@
         padding-top: 15px;
     }
 
-    /* .row1 {
-        margin-left: 80px;
-    } */
-
     .row .col-1-of-2 {
         height: 150px;
     }
@@ -113,16 +108,17 @@
         display: none;
     }
 
-    
+
 
     .navbar {
-        background: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7);
         padding: 0;
     }
 
     .navbar-nav {
         float: left;
     }
+
     .leo-nav-wrapper {
         padding: 0;
     }
@@ -134,12 +130,12 @@
 
 /* Extra small device */
 @media (max-width: 480px) {
-    #home-heading h3{
+    #home-heading h3 {
         font-size: 30px
     }
 
     .navbar {
-        background: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7);
         padding: 0;
     }
 
@@ -149,15 +145,9 @@
         margin-bottom: 20px;
     }
 
-    /* .row1 {
-        margin-left: -32px;
-    } */
-
     .navbar-nav {
         float: left;
     }
-
-    
 
     .composition {
         display: none;
@@ -189,19 +179,15 @@
     }
 
     .navbar {
-        background: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7);
         padding: 0;
     }
-
-    /* .row1 {
-        margin-left: -40px;
-    } */
 
     .navbar-nav {
         float: left;
     }
+
     .leo-nav-wrapper {
         padding: 0;
     }
-}   
-
+}
