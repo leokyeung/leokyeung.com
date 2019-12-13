@@ -249,7 +249,7 @@ h3 {
     transform: skewY(-5deg);
 }
 
-#features>* {
+#features > * {
     transform: skewY(5deg);
 }
 
@@ -366,7 +366,7 @@ ul {
 }
 
 .box:nth-child(2):before,
-.box:nth-child(2)::after {
+.box:nth-child(2):after {
     background: linear-gradient(235deg, #ff005e, #010615, #fbff00);
 
 }
