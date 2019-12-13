@@ -311,6 +311,7 @@ ul {
 /* Projects */
 .row1 {
     max-width: 99rem;
+    box-sizing: border-box;
     margin: 0px auto 0px auto;
     display:flex;
     justify-content: center;
@@ -326,13 +327,13 @@ ul {
 
 .box {
     position: relative;
+    float: left;
     width: 300px;
     height: 400px;
+    margin: 15px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     background: #060c21;
-    margin: 40px;
+    
 }
 
 .box:before {
@@ -358,27 +359,20 @@ ul {
     filter: blur(40px);
 }
 
-
-.col-1-of-3 {
-    width: 30%;
-    margin: 15px;
-    box-sizing: border-box;
-}
-
-.col-1-of-3:nth-child(1) .box:before,
-.col-1-of-3:nth-child(1) .box:after {
+.box:nth-child(1):before,
+.box:nth-child(1):after {
     background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
 
 }
 
-.col-1-of-3:nth-child(2) .box:before,
-.col-1-of-3:nth-child(2) .box:after {
+.box:nth-child(2):before,
+.box:nth-child(2)::after {
     background: linear-gradient(235deg, #ff005e, #010615, #fbff00);
 
 }
 
-.col-1-of-3:nth-child(3) .box:before,
-.col-1-of-3:nth-child(3) .box:after {
+.box:nth-child(3):before,
+.box:nth-child(3):after {
     background: linear-gradient(235deg, #772aff, #010615, #2196F3);
 
 }
