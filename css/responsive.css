@@ -57,16 +57,39 @@
 
     .row1 {
         max-width: 100px;
-        margin-left: 240px;
+        margin-left: 189px;
+        /* 189 */
+    }
     
+    .box {
+        width: 383px;
+    }
+    .col-sm-4 {
+        width: 50%;
     }
 
-    /* .icon{
-        float: left;
-        width: 20%;
-        top: 15px;
-        margin-right: 70px;
-    } */
+    #footer-menu {
+        display: none;
+    }
+
+    .p1 {
+        left: 40px;
+    }
+    .p2{
+        left: 210px;
+    }
+    .p3{
+        left: 370px;
+    }
+    .p4{
+        top: 180px;
+        right: 200px;
+    }
+
+    .p5{
+        top: 180px;
+        right: 370px;
+    }
 }
 
 /* Extra small device */
@@ -79,7 +102,6 @@
         padding-top: 15px;
     }
 
-
     .navbar {
         background: rgba(0,0,0,0.7);
         padding: 0;
@@ -90,6 +112,10 @@
     }
     .leo-nav-wrapper {
         padding: 0;
+    }
+
+    .footer-menu {
+        display: none;
     }
 }
 
