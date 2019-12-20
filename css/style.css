@@ -393,12 +393,13 @@ ul {
     color: #fff;
 }
 
-.box .content h2 {
-    font-weight: 300;
+.box:nth-child(1) h2{
+    font-size: 53px;
+    font-family: 'Shadows Into Light', cursive;
     text-align: center;
 }
 
-.box .content p {
+.content p {
     text-align: center;
 }
 
@@ -422,7 +423,7 @@ ul {
     position: relative;
     display: inline-block;
     padding: 10px 30px;
-    margin: 20px auto;
+    margin: 12px auto;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
