@@ -389,10 +389,89 @@ ul {
 }
 
 .box .content {
-    padding: 20px;
+    padding: 10px;
     color: #fff;
 }
 
+.box .content h2 {
+    font-weight: 300;
+    text-align: center;
+}
+
+.box .content p {
+    text-align: center;
+}
+
+.content_picture {
+    background-size: cover;
+    background-position: center center;
+    height: 14rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.content_pic_1 {
+    background-image: linear-gradient(to right bottom, #80b3ff , rgba(185, 19, 19, 0.911)), url(../img/kbbq.jpeg);
+}
+
+.nicebutton {
+    top: 50%;
+    left: 21%;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 20px auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: #fff;
+    transition: 0.5s;
+    background: linear-gradient(to right, #43e97b, #38f9d7, #43e97b);
+    background-size: 200%;
+    border-radius: 2px;
+}
+
+.nicebutton:hover {
+    background-position-x: 100%;
+    transform: translateY(-10px);
+    text-decoration: none;
+    color: #fff;
+}
+
+.nicebutton:after {
+    content: "";
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+}
+
+.nicebutton:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    height: 4px;
+    background: rgba(0,0,0,0.2);
+    text-decoration: none;
+    border-radius: 2px;
+    transform: scale(0);
+    filter: blur(5px);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.nicebutton:hover:before {
+    transform: scale(1);
+    bottom: -15px;
+}
 /* Footer */
 
 #footer-bottom {
