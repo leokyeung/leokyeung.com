@@ -33,6 +33,7 @@ h3 {
 
 #home-cover {
     height: 100%;
+    width: 100%;
     background-image: linear-gradient(to right bottom, rgba(30, 115, 172, 0.7), rgba(142, 57, 153, 0.6)), url("../img/building.jpg");
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
@@ -53,7 +54,8 @@ h3 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    position: fixed;
+    /* background-attachment: fixed; */
 }
 
 #home-content-box {
