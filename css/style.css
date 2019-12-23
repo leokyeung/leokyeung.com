@@ -54,7 +54,9 @@ h3 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    position: fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
     /* background-attachment: fixed; */
 }
 
