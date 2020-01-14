@@ -413,6 +413,12 @@ ul {
     text-align: center;
 }
 
+.box:nth-child(3) h2{
+    font-size: 53px;
+    font-family: 'Shadows Into Light', cursive;
+    text-align: center;
+}
+
 .content p {
     text-align: center;
 }
@@ -432,6 +438,10 @@ ul {
 
 .content_pic_2 {
     background-image: linear-gradient(to right bottom, #2370e3 , rgba(47, 55, 69, 0.961)), url(../img/social.jpg);
+}
+
+.content_pic_3 {
+    background-image: linear-gradient(to right bottom, #144183 , rgba(47, 55, 69, 0.961)), url(../img/movie.jpg);
 }
 
 .nicebutton {
@@ -546,6 +556,64 @@ ul {
 }
 
 .nicebutton1:hover:before {
+    transform: scale(1);
+    bottom: -15px;
+}
+
+.nicebutton2 {
+    top: 50%;
+    left: 24%;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 20px auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: #fff;
+    transition: 0.5s;
+    background: linear-gradient(to right, #fa709a, #fee140, #fa709a);
+    background-size: 200%;
+    border-radius: 2px;
+}
+
+.nicebutton2:hover {
+    background-position-x: 100%;
+    transform: translateY(-10px);
+    text-decoration: none;
+    color: #fff;
+}
+
+.nicebutton2:after {
+    content: "";
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+}
+
+.nicebutton2:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    height: 4px;
+    background: rgba(0,0,0,0.2);
+    text-decoration: none;
+    border-radius: 2px;
+    transform: scale(0);
+    filter: blur(5px);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.nicebutton2:hover:before {
     transform: scale(1);
     bottom: -15px;
 }
