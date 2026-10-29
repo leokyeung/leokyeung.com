@@ -527,8 +527,6 @@ body[data-design="hybrid"] .project:nth-child(2) .project-visual { order: 2; }
 body[data-design="hybrid"] .project-preview { background: #fcfdf9; border: 1px solid #cbd6c6; border-radius: 4px; }
 body[data-design="hybrid"] .project-preview img { aspect-ratio: 1.6; object-fit: contain; width: 100%; height: auto; }
 .project-visual-caption { display: flex; justify-content: space-between; gap: 14px; padding-top: 12px; font-size: 10px; color: #526552; }
-.project-visual-caption a { color: #283a2d; }
-.project-visual-caption a:hover { text-decoration: underline; }
 body[data-design="hybrid"] .project-details { padding-top: 8px; }
 body[data-design="hybrid"] .project-title { margin-block: 16px; }
 body[data-design="hybrid"] .project-title h3 { font-size: 43px; }
