@@ -79,7 +79,8 @@ const actions = `<div class="hero-actions"><a class="primary-link" href="#work">
 function header() {
   const sections = design.id === 'hybrid' ? ['experience', 'work', 'about'] : ['work', 'experience', 'about'];
   const links = sections.map(id => `<a href="#${id}">${id[0].toUpperCase()}${id.slice(1)}</a>`).join('');
-  return `<header class="site-header wrap"><a class="wordmark" href="#main" aria-label="Leo Yeung home">LY<span>.</span></a><span class="header-context">Engineering, with people in mind.</span><nav class="site-nav" aria-label="Main navigation">${links}${resumeLink()}<a class="nav-contact" href="mailto:leoyeung99@gmail.com">Let's talk ${icon('arrow-top-right')}</a></nav><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">${icon('navigation-menu')}</button><nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden>${links}${resumeLink()}<a href="mailto:leoyeung99@gmail.com">Let's talk ${icon('arrow-top-right')}</a></nav></header>`;
+  const resumeButton = `<a class="nav-contact" href="${resumeUrl}" ${external} aria-label="My Resume (PDF, opens in a new tab)">My Resume</a>`;
+  return `<header class="site-header wrap"><a class="wordmark" href="#main" aria-label="Leo Yeung home">LY<span>.</span></a><span class="header-context">Engineering, with people in mind.</span><nav class="site-nav" aria-label="Main navigation">${links}${resumeButton}</nav><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">${icon('navigation-menu')}</button><nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden>${links}${resumeButton}</nav></header>`;
 }
 
 function hero() {
@@ -113,7 +114,7 @@ function impact() {
       return `<span class="count" data-target="${value}"><span class="count-sizer" aria-hidden="true">${label}</span><span class="count-value" aria-hidden="true">${label}</span><span class="visually-hidden">${label}</span></span>`;
     };
     return `<section id="impact" class="hybrid-impact" aria-label="Career impact"><div class="wrap"><p class="section-kicker">The difference is in the details. The impact is in the numbers.</p><div class="hybrid-metrics">
-      <div class="metric"><strong>${counter(10)}<span>+</span></strong><p>years in technical support</p><small>Advertising, SaaS, and payments</small></div>
+      <div class="metric"><strong>${counter(10)}<span>+</span></strong><p>Years in Support Engineering</p><small>Advertising, SaaS, and payments</small></div>
       <div class="metric"><strong>${counter(93)}<span>%</span></strong><p>less time per escalation</p><small>From 2+ minutes to ~8 seconds</small></div>
       <div class="metric"><strong>${counter(6463)}</strong><p>production escalations streamlined</p><small>With a team-wide extension I built</small></div>
       <div class="metric"><strong>${counter(781)}<span>+</span></strong><p>global reps on the support platform</p><small>Where I launched new API workflows</small></div>
