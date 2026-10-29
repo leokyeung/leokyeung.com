@@ -75,7 +75,9 @@ const intro = 'I connect the dots between people, APIs, and engineering. Over a 
 const actions = `<div class="hero-actions"><a class="primary-link" href="#work">Explore my work ${icon('arrow-down')}</a><a class="text-link" href="https://www.linkedin.com/in/leokyeung/" ${external}>LinkedIn ${icon('arrow-top-right')}</a></div>`;
 
 function header() {
-  return `<header class="site-header wrap"><a class="wordmark" href="#main" aria-label="Leo Yeung home">LY<span>.</span></a><span class="header-context">Engineering, with people in mind.</span><nav class="site-nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a class="nav-contact" href="mailto:leoyeung99@gmail.com">Let's talk ${icon('arrow-top-right')}</a></nav><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">${icon('navigation-menu')}</button><nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="mailto:leoyeung99@gmail.com">Let's talk ${icon('arrow-top-right')}</a></nav></header>`;
+  const sections = design.id === 'hybrid' ? ['experience', 'work', 'about'] : ['work', 'experience', 'about'];
+  const links = sections.map(id => `<a href="#${id}">${id[0].toUpperCase()}${id.slice(1)}</a>`).join('');
+  return `<header class="site-header wrap"><a class="wordmark" href="#main" aria-label="Leo Yeung home">LY<span>.</span></a><span class="header-context">Engineering, with people in mind.</span><nav class="site-nav" aria-label="Main navigation">${links}<a class="nav-contact" href="mailto:leoyeung99@gmail.com">Let's talk ${icon('arrow-top-right')}</a></nav><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">${icon('navigation-menu')}</button><nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden>${links}<a href="mailto:leoyeung99@gmail.com">Let's talk ${icon('arrow-top-right')}</a></nav></header>`;
 }
 
 function hero() {
@@ -87,7 +89,7 @@ function hero() {
         <h1>Leo Yeung<span>.</span></h1>
         <h2>A technical mind.<br><em>A human approach.</em></h2>
         <p class="hybrid-hero-description">I turn complex partner problems into clear solutions.<br> And build the tools that make the next one easier.</p>
-        <div class="hero-actions"><a class="primary-link" href="#experience">Explore my experience ${icon('arrow-down')}</a><a class="text-link" href="#work">See what I've built ${icon('arrow-top-right')}</a></div>
+        <div class="hero-actions"><a class="primary-link" href="#experience">Explore my experience ${icon('arrow-down')}</a><a class="text-link" href="#work">See what I've built ${icon('arrow-down')}</a></div>
         <div class="hybrid-hero-footer"><div class="hybrid-companies"><span>Experience across</span><strong>LinkedIn</strong><strong>Directly</strong><strong>Visa</strong></div><span class="hybrid-specialties">API integrations / AI automation / Partnerships</span></div>
       </div>
     </section>`;

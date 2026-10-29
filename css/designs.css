@@ -635,7 +635,11 @@ body[data-design="hybrid"] .site-footer { padding-block: 28px; border: 0; }
 	body[data-design="hybrid"] .contact-row h2 { font-size: 31px; }
 	body[data-design="hybrid"] .section-heading h2 { font-size: 32px; }
 }
-@media (max-height: 700px) {
+/* Must stay after the breakpoints so these minimum sizes win. */
+body[data-design="hybrid"] .site-header { --accent: #d3f399; }
+body[data-design="hybrid"] .eyebrow, body[data-design="hybrid"] .section-kicker, body[data-design="hybrid"] .hybrid-intro .eyebrow, body[data-design="hybrid"] .hybrid-impact .section-kicker, body[data-design="hybrid"] .hybrid-companies > span, body[data-design="hybrid"] .hybrid-specialties, body[data-design="hybrid"] .current-role, body[data-design="hybrid"] .job-number, body[data-design="hybrid"] .project-visual-toolbar > span, body[data-design="hybrid"] .project-meta, body[data-design="hybrid"] .project-tags { font-size: 11px; }
+body[data-design="hybrid"] .hybrid-current, body[data-design="hybrid"] .metric small, body[data-design="hybrid"] .project-view-switcher button, body[data-design="hybrid"] .project-visual-caption, body[data-design="hybrid"] .project-features, body[data-design="hybrid"] .site-footer, body[data-design="hybrid"] .hero-hybrid .hero-actions { font-size: 12px; }
+body[data-design="hybrid"] .hybrid-companies { flex-wrap: wrap; }@media (max-height: 700px) {
 	.hero-hybrid { padding-top: 105px; }
 	.hero-hybrid h1 { font-size: 76px; margin-bottom: 14px; }
 	.hero-hybrid h2 { font-size: 35px; }
