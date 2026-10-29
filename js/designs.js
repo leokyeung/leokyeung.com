@@ -108,11 +108,15 @@ function hero() {
 
 function impact() {
   if (design.id === 'hybrid') {
+    const counter = value => {
+      const label = value.toLocaleString('en-US');
+      return `<span class="count" data-target="${value}"><span class="count-sizer" aria-hidden="true">${label}</span><span class="count-value" aria-hidden="true">${label}</span><span class="visually-hidden">${label}</span></span>`;
+    };
     return `<section id="impact" class="hybrid-impact" aria-label="Career impact"><div class="wrap"><p class="section-kicker">The difference is in the details. The impact is in the numbers.</p><div class="hybrid-metrics">
-      <div class="metric"><strong>10<span>+</span></strong><p>years in technical support</p><small>Advertising, SaaS, and payments</small></div>
-      <div class="metric"><strong>93<span>%</span></strong><p>less time per escalation</p><small>From 2+ minutes to ~8 seconds</small></div>
-      <div class="metric"><strong>6,463</strong><p>production escalations streamlined</p><small>With a team-wide extension I built</small></div>
-      <div class="metric"><strong>781<span>+</span></strong><p>global reps on the support platform</p><small>Where I launched new API workflows</small></div>
+      <div class="metric"><strong>${counter(10)}<span>+</span></strong><p>years in technical support</p><small>Advertising, SaaS, and payments</small></div>
+      <div class="metric"><strong>${counter(93)}<span>%</span></strong><p>less time per escalation</p><small>From 2+ minutes to ~8 seconds</small></div>
+      <div class="metric"><strong>${counter(6463)}</strong><p>production escalations streamlined</p><small>With a team-wide extension I built</small></div>
+      <div class="metric"><strong>${counter(781)}<span>+</span></strong><p>global reps on the support platform</p><small>Where I launched new API workflows</small></div>
     </div></div></section>`;
   }
   return `<section id="impact" class="impact wrap" aria-label="Career impact"><div class="impact-intro"><span class="section-kicker">The work, in numbers</span><h2>Small tools.<br>Meaningful impact.</h2></div><div class="metric"><strong>93<span>%</span></strong><p>less time per escalation</p><small>2+ minutes to ~8 seconds</small></div><div class="metric"><strong>6,463</strong><p>production escalations streamlined</p><small>With a team-wide tool I built</small></div><div class="metric"><strong>781<span>+</span></strong><p>global reps on the support platform</p><small>Where I launched new workflows</small></div></section>`;
@@ -121,7 +125,7 @@ function impact() {
 function projectVisual(project) {
   const artwork = `<a class="project-preview" href="${project.url}" ${external} aria-label="Visit ${project.name} (opens in a new tab)"><img id="${project.id}-visual" src="img/${project.id}-cover.jpg" alt="${project.name} product artwork" width="1462" height="768" loading="lazy"></a>`;
   if (design.id !== 'hybrid') return artwork;
-  return `<div class="project-visual"><div class="project-visual-toolbar"><a class="project-domain" href="${project.url}" ${external} aria-label="Visit ${project.name} at ${new URL(project.url).hostname} (opens in a new tab)">${new URL(project.url).hostname} ${icon('arrow-top-right')}</a><div class="project-view-switcher" role="group" aria-label="${project.name} preview"><button type="button" data-project="${project.id}" data-view="cover" aria-controls="${project.id}-visual" aria-pressed="true">Artwork</button><button type="button" data-project="${project.id}" data-view="screen" aria-controls="${project.id}-visual" aria-pressed="false">Website</button></div></div>${artwork}<div class="project-visual-caption"><span>Designed & built end to end</span></div></div>`;
+  return `<div class="project-visual"><div class="project-visual-toolbar"><a class="project-domain" href="${project.url}" ${external} aria-label="Visit ${project.name} at ${new URL(project.url).hostname} (opens in a new tab)">${new URL(project.url).hostname} ${icon('arrow-top-right')}</a><div class="project-view-switcher" role="group" aria-label="${project.name} preview"><button type="button" data-project="${project.id}" data-view="cover" aria-controls="${project.id}-visual" aria-pressed="true">Artwork</button><button type="button" data-project="${project.id}" data-view="screen" aria-controls="${project.id}-visual" aria-pressed="false">Website</button></div></div>${artwork}</div>`;
 }
 
 function work() {
@@ -161,6 +165,33 @@ document.querySelectorAll('.project-view-switcher').forEach(switcher => {
     switcher.querySelectorAll('button').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
   });
 });
+
+const impactSection = document.querySelector('.hybrid-impact');
+if (impactSection && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const counters = [...impactSection.querySelectorAll('.count')];
+  const countUp = (counter, delay) => {
+    const target = Number(counter.dataset.target);
+    const output = counter.querySelector('.count-value');
+    const duration = 1600;
+    let start;
+    const step = now => {
+      start ??= now + delay;
+      const progress = Math.min(Math.max((now - start) / duration, 0), 1);
+      output.textContent = Math.round(target * (1 - (1 - progress) ** 3)).toLocaleString('en-US');
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  counters.forEach(counter => { counter.querySelector('.count-value').textContent = '0'; });
+  impactSection.classList.add('is-pending');
+  const observer = new IntersectionObserver(entries => {
+    if (!entries.some(entry => entry.isIntersecting)) return;
+    observer.disconnect();
+    impactSection.classList.replace('is-pending', 'is-visible');
+    counters.forEach((counter, index) => countUp(counter, index * 150));
+  }, { threshold: 0.35 });
+  observer.observe(impactSection);
+}
 
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
