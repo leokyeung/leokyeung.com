@@ -135,7 +135,9 @@ function work() {
 
 function experience() {
   const isHybrid = design.id === 'hybrid';
-  return `<section id="experience" class="experience-section section-space wrap"><div class="section-heading"><div><span class="section-kicker">${isHybrid ? '01 / Career & impact' : '02 / The experience'}</span><h2>${isHybrid ? 'Beyond the ticket.<br>Closer to the solution.' : 'Deep in the details.<br>Focused on the outcome.'}</h2></div><p>A decade at the intersection of enterprise<br>technology and the people who use it.</p></div><div class="experience-list">${jobs.map((job, index) => `<article class="job"><div class="job-heading"><span class="job-number">0${index + 1}</span><div><h3>${job.company}</h3><span class="job-dates">${job.dates}</span>${isHybrid && index === 0 ? '<span class="current-role">Current role</span>' : ''}</div></div><div class="job-body"><p class="job-role">${job.role}</p><h4>${job.summary}</h4><ul>${job.points.map(point => `<li>${point}</li>`).join('')}</ul></div></article>`).join('')}</div></section>`;
+  const listTag = isHybrid ? 'ol' : 'div';
+  const entryTag = isHybrid ? 'li' : 'article';
+  return `<section id="experience" class="experience-section section-space wrap"><div class="section-heading"><div><span class="section-kicker">${isHybrid ? '01 / Career & impact' : '02 / The experience'}</span><h2>${isHybrid ? 'Beyond the ticket.<br>Closer to the solution.' : 'Deep in the details.<br>Focused on the outcome.'}</h2></div><p>A decade at the intersection of enterprise<br>technology and the people who use it.</p></div><${listTag} class="experience-list${isHybrid ? ' career-timeline' : ''}"${isHybrid ? ' role="list" aria-label="Career history, most recent first"' : ''}>${jobs.map((job, index) => `<${entryTag} class="job${isHybrid && index === 0 ? ' is-current' : ''}"><div class="job-heading"><span class="job-number"${isHybrid ? ' aria-hidden="true"' : ''}>0${index + 1}</span><div><h3>${job.company}</h3><span class="job-dates">${job.dates}</span>${isHybrid && index === 0 ? '<span class="current-role">Current role</span>' : ''}</div></div><div class="job-body"><p class="job-role">${job.role}</p><h4>${job.summary}</h4><ul>${job.points.map(point => `<li>${point}</li>`).join('')}</ul></div></${entryTag}>`).join('')}</${listTag}></section>`;
 }
 
 function about() {
@@ -191,6 +193,34 @@ if (impactSection && 'IntersectionObserver' in window && !matchMedia('(prefers-r
     counters.forEach((counter, index) => countUp(counter, index * 150));
   }, { threshold: 0.35 });
   observer.observe(impactSection);
+}
+
+const careerTimeline = document.querySelector('.career-timeline');
+if (careerTimeline && 'IntersectionObserver' in window) {
+  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  if (!motionPreference.matches) {
+    const entries = [...careerTimeline.querySelectorAll('.job')];
+    const revealEntry = entry => {
+      entry.classList.remove('timeline-pending');
+      entry.classList.add('timeline-revealed');
+    };
+    const timelineObserver = new IntersectionObserver(observations => {
+      observations.forEach(observation => {
+        if (!observation.isIntersecting) return;
+        revealEntry(observation.target.closest('.job'));
+        timelineObserver.unobserve(observation.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -24px 0px' });
+    entries.forEach(entry => {
+      entry.classList.add('timeline-pending');
+      timelineObserver.observe(entry.querySelector('.job-heading'));
+    });
+    motionPreference.addEventListener('change', event => {
+      if (!event.matches) return;
+      timelineObserver.disconnect();
+      entries.forEach(revealEntry);
+    });
+  }
 }
 
 const menuToggle = document.querySelector('.menu-toggle');
