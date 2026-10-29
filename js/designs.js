@@ -188,7 +188,7 @@ function about() {
   const isHybrid = design.id === 'hybrid';
   const skills = [
     { title: 'Connect & investigate', icon: 'connection', items: ['REST / SOAP', 'SSO', 'HTTP / JSON', 'cURL / Postman', 'Request tracing', 'Log analysis'] },
-    { title: 'Build & automate', icon: 'code-alt', items: ['JavaScript', 'Python', 'SQL', 'React / Node.js', 'Express', 'MySQL / MongoDB', 'Git'] },
+    { title: 'Build & automate', icon: 'code-alt', items: ['HTML / CSS', 'JavaScript', 'Python', 'SQL', 'React / Node.js', 'Express', 'MySQL / MongoDB', 'Git'] },
     { title: 'Support & operate', icon: 'settings-alt', items: ['Salesforce / Jira', 'AWS', 'Zendesk', 'Kibana', 'Glean', 'Monitoring', 'Incident response'] }
   ];
   return `<section id="about" class="about-section section-space"><div class="wrap">${isHybrid ? '<h2 class="section-kicker">03 / Technical skills</h2>' : `<div class="about-grid"><div><span class="section-kicker">03 / Behind the work</span><h2>Technical depth.<br>Human connection.</h2></div><div class="about-copy"><p class="large-copy">I'm a partner-facing engineer who likes getting to the root of a problem, then doing something useful with what I find.</p><p>My work spans advertising, SaaS, and payments. I combine hands-on investigation with clear communication, whether I'm debugging an API, coordinating an incident, or writing integration code reviewed by Engineering.</p><p>Outside that work, I build products around a simple idea: making it easier for people to spend time together.</p></div></div>`}<div class="skill-groups">${skills.map(group => `<div class="skill-group">${icon(group.icon)}<h3>${group.title}</h3><ul>${group.items.map(item => `<li>${item}</li>`).join('')}</ul></div>`).join('')}</div></div></section>`;
