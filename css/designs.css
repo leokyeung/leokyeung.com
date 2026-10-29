@@ -519,7 +519,8 @@ body[data-design="hybrid"] .project + .project { margin-top: 54px; padding-top: 
 body[data-design="hybrid"] .project:nth-child(2) .project-visual { order: 2; }
 .project-visual { min-width: 0; }
 .project-visual-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; }
-.project-visual-toolbar > span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #54655a; }
+.project-visual-toolbar > .project-domain { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #3c5444; text-decoration: underline; text-decoration-color: #9fb39f; text-underline-offset: 4px; }
+.project-visual-toolbar > .project-domain:hover { color: var(--accent); text-decoration-color: currentColor; }
 .project-view-switcher { display: flex; border: 1px solid #cbd4c8; padding: 3px; border-radius: 4px; background: #e5ebe1; }
 .project-view-switcher button { min-width: 63px; min-height: 32px; padding: 5px 10px; color: #546253; border: 0; border-radius: 2px; background: transparent; font-size: 10px; cursor: pointer; }
 .project-view-switcher button[aria-pressed="true"] { background: #fcfdf9; color: #243429; box-shadow: 0 1px 3px #253d2312; }
@@ -612,7 +613,7 @@ body[data-design="hybrid"] .site-footer { padding-block: 28px; border: 0; }
 	body[data-design="hybrid"] .project-visual { width: 100%; }
 	body[data-design="hybrid"] .project:nth-child(2) .project-visual { order: 0; }
 	body[data-design="hybrid"] .project + .project { margin-top: 34px; padding-top: 34px; }
-	.project-visual-toolbar > span { font-size: 9px; }
+	.project-visual-toolbar > .project-domain { font-size: 9px; }
 	.project-view-switcher button { min-height: 38px; min-width: 60px; }
 	.project-visual-caption { font-size: 9px; }
 	body[data-design="hybrid"] .project-details { padding-top: 0; width: 100%; }
@@ -637,7 +638,7 @@ body[data-design="hybrid"] .site-footer { padding-block: 28px; border: 0; }
 }
 /* Must stay after the breakpoints so these minimum sizes win. */
 body[data-design="hybrid"] .site-header { --accent: #d3f399; }
-body[data-design="hybrid"] .eyebrow, body[data-design="hybrid"] .section-kicker, body[data-design="hybrid"] .hybrid-intro .eyebrow, body[data-design="hybrid"] .hybrid-impact .section-kicker, body[data-design="hybrid"] .hybrid-companies > span, body[data-design="hybrid"] .hybrid-specialties, body[data-design="hybrid"] .current-role, body[data-design="hybrid"] .job-number, body[data-design="hybrid"] .project-visual-toolbar > span, body[data-design="hybrid"] .project-meta, body[data-design="hybrid"] .project-tags { font-size: 11px; }
+body[data-design="hybrid"] .eyebrow, body[data-design="hybrid"] .section-kicker, body[data-design="hybrid"] .hybrid-intro .eyebrow, body[data-design="hybrid"] .hybrid-impact .section-kicker, body[data-design="hybrid"] .hybrid-companies > span, body[data-design="hybrid"] .hybrid-specialties, body[data-design="hybrid"] .current-role, body[data-design="hybrid"] .job-number, body[data-design="hybrid"] .project-visual-toolbar > .project-domain, body[data-design="hybrid"] .project-meta, body[data-design="hybrid"] .project-tags { font-size: 11px; }
 body[data-design="hybrid"] .hybrid-current, body[data-design="hybrid"] .metric small, body[data-design="hybrid"] .project-view-switcher button, body[data-design="hybrid"] .project-visual-caption, body[data-design="hybrid"] .project-features, body[data-design="hybrid"] .site-footer, body[data-design="hybrid"] .hero-hybrid .hero-actions { font-size: 12px; }
 body[data-design="hybrid"] .hybrid-companies { flex-wrap: wrap; }@media (max-height: 700px) {
 	.hero-hybrid { padding-top: 105px; }
