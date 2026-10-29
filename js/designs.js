@@ -16,6 +16,8 @@ const icon = name => name === 'arrow-top-right'
   ? '<i class="icofont-arrow-up icon-diagonal" aria-hidden="true"></i>'
   : `<i class="icofont-${name}" aria-hidden="true"></i>`;
 const external = 'target="_blank" rel="noopener noreferrer"';
+const resumeUrl = 'https://leo-resume.s3.us-west-1.amazonaws.com/Leo+Yeung+Resume.pdf';
+const resumeLink = `<a href="${resumeUrl}" ${external} aria-label="Résumé (PDF, opens in a new tab)">Résumé ${icon('arrow-top-right')}</a>`;
 const projects = [
   {
     name: 'LetzHang', id: 'letzhang', url: 'https://letzhang.com/', category: 'Group scheduling', number: '01',
@@ -77,7 +79,7 @@ const actions = `<div class="hero-actions"><a class="primary-link" href="#work">
 function header() {
   const sections = design.id === 'hybrid' ? ['experience', 'work', 'about'] : ['work', 'experience', 'about'];
   const links = sections.map(id => `<a href="#${id}">${id[0].toUpperCase()}${id.slice(1)}</a>`).join('');
-  return `<header class="site-header wrap"><a class="wordmark" href="#main" aria-label="Leo Yeung home">LY<span>.</span></a><span class="header-context">Engineering, with people in mind.</span><nav class="site-nav" aria-label="Main navigation">${links}<a class="nav-contact" href="mailto:leoyeung99@gmail.com">Let's talk ${icon('arrow-top-right')}</a></nav><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">${icon('navigation-menu')}</button><nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden>${links}<a href="mailto:leoyeung99@gmail.com">Let's talk ${icon('arrow-top-right')}</a></nav></header>`;
+  return `<header class="site-header wrap"><a class="wordmark" href="#main" aria-label="Leo Yeung home">LY<span>.</span></a><span class="header-context">Engineering, with people in mind.</span><nav class="site-nav" aria-label="Main navigation">${links}${resumeLink}<a class="nav-contact" href="mailto:leoyeung99@gmail.com">Let's talk ${icon('arrow-top-right')}</a></nav><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">${icon('navigation-menu')}</button><nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden>${links}${resumeLink}<a href="mailto:leoyeung99@gmail.com">Let's talk ${icon('arrow-top-right')}</a></nav></header>`;
 }
 
 function hero() {
@@ -142,7 +144,7 @@ function about() {
 }
 
 function contact() {
-  return `<section id="contact" class="contact-section section-space wrap"><span class="section-kicker">A conversation is a good place to start</span><div class="contact-row"><h2>Let's solve<br>something <em>together.</em></h2><a class="contact-arrow" href="mailto:leoyeung99@gmail.com" aria-label="Email Leo Yeung">${icon('arrow-top-right')}</a></div><div class="contact-links"><a href="mailto:leoyeung99@gmail.com">leoyeung99@gmail.com ${icon('arrow-top-right')}</a><a href="https://www.linkedin.com/in/leokyeung/" ${external}>LinkedIn ${icon('arrow-top-right')}</a><a href="https://github.com/leokyeung" ${external}>GitHub ${icon('arrow-top-right')}</a></div></section>`;
+  return `<section id="contact" class="contact-section section-space wrap"><span class="section-kicker">A conversation is a good place to start</span><div class="contact-row"><h2>Let's solve<br>something <em>together.</em></h2><a class="contact-arrow" href="mailto:leoyeung99@gmail.com" aria-label="Email Leo Yeung">${icon('arrow-top-right')}</a></div><div class="contact-links"><a href="mailto:leoyeung99@gmail.com">leoyeung99@gmail.com ${icon('arrow-top-right')}</a>${resumeLink}<a href="https://www.linkedin.com/in/leokyeung/" ${external}>LinkedIn ${icon('arrow-top-right')}</a><a href="https://github.com/leokyeung" ${external}>GitHub ${icon('arrow-top-right')}</a></div></section>`;
 }
 
 if (picker) picker.innerHTML = `<a class="picker-brand" href="designs.html">LY / Design collection</a><div class="picker-options">${designs.map(item => `<a href="?design=${item.id}" ${item.id === design.id ? 'aria-current="page"' : ''}><span>${item.number}</span> ${item.name}</a>`).join('')}</div><span class="picker-count">${design.number} / ${String(designs.length).padStart(2, '0')}</span>`;
