@@ -174,7 +174,7 @@ function projectCard(project, index, total) {
 function work() {
   const isHybrid = design.id === 'hybrid';
   const builds = isHybrid ? [...supportProjects, ...projects] : projects;
-  return `<section id="work" class="work-section section-space"><div class="wrap"><div class="section-heading"><div><span class="section-kicker">${isHybrid ? '01 / Selected builds' : '01 / Independently built'}</span><h2>${isHybrid ? 'Ideas brought to life,<br>from internal tools to independent products' : 'Outside the day job'}<span>.</span></h2></div><p>${isHybrid ? 'I build practical tools that solve real problems, whether it\'s improving support workflows, exploring AI, or creating products I personally use.' : 'Two ideas I turned into live products.<br>Designed, developed, and shipped end to end.'}</p></div><div class="projects">${builds.map((project, index) => projectCard(project, index, builds.length)).join('')}</div></div></section>`;
+  return `<section id="work" class="work-section section-space"><div class="wrap"><div class="section-heading"><div><span class="section-kicker">${isHybrid ? '01 / Selected builds' : '01 / Independently built'}</span><h2>${isHybrid ? 'From ideas to products' : 'Outside the day job'}<span>.</span></h2></div><p>${isHybrid ? 'Building tools and experiences that solve real problems.' : 'Two ideas I turned into live products.<br>Designed, developed, and shipped end to end.'}</p></div><div class="projects">${builds.map((project, index) => projectCard(project, index, builds.length)).join('')}</div></div></section>`;
 }
 
 function experience() {
