@@ -13,7 +13,7 @@ The site is static HTML, CSS, and JavaScript served by GitHub Pages from
   expandable LetzHang and DinkLeo case studies. Project artwork comes from the
   respective repositories; homepage screenshots were captured on October 28, 2026.
   Private repository links, internal tool names, and phone numbers are not exposed.
-- [404.html](404.html), [robots.txt](robots.txt), and [sitemap.xml](sitemap.xml)
+- [robots.txt](robots.txt) and [sitemap.xml](sitemap.xml)
   are served by GitHub Pages as-is.
 
 Google Fonts requires an internet connection; system serif and sans-serif
