@@ -8,44 +8,28 @@ const stats = { years: 10, timeSaved: 93, escalations: 6463, reps: 781 };
 const fmt = value => value.toLocaleString('en-US');
 const projects = [
   {
-    name: 'LetzHang', id: 'letzhang', url: 'https://letzhang.com/', category: 'Side project / Scheduling', number: '01',
-    tagline: 'Scheduling made simple.',
-    description: 'A clean and flexible scheduling tool for coordinating hangouts and group availability, with account-free RSVPs and calendar integration.',
-    problem: 'Getting a group together should not require another group chat, spreadsheet, or account for every friend.',
-    solution: 'I built the complete experience: host dashboards, shareable invitations, availability matching, private response editing, email recovery, and calendar integration.',
-    engineering: 'Protected guest submissions, duplicate-request handling, and durable notification jobs with retries keep the experience dependable beyond the browser.',
-    stack: ['React', 'TypeScript', 'Supabase', 'Vercel', 'Resend'],
-    features: ['Account-free RSVPs', 'Date matching', 'Calendar integration']
+    name: 'LetzHang', id: 'letzhang', url: 'https://letzhang.com/', category: 'Independent product',
+    description: 'Find a day that works for everyone. No sign-up needed to RSVP.',
+    problem: "Group plans get buried in chats. Finding a date shouldn't mean another spreadsheet or an account for every guest.",
+    solution: 'An end-to-end scheduling app with host dashboards, shareable invitations, availability matching, and account-free RSVPs.',
+    engineering: 'Protected guest submissions, duplicate-request handling, and durable notification jobs with retries.',
+    stack: ['React', 'TypeScript', 'Supabase', 'Vercel', 'Resend'], imageWidth: 1731, imageHeight: 909
   },
-  {
-    name: 'DinkLeo', id: 'dinkleo', url: 'https://dinkleo.com/', category: 'Side project / Pickleball', number: '02',
-    tagline: 'Smarter pickleball round robins.',
-    description: 'Organizes fair and fun round robins with automated matchups, player management, score entry, and standings.',
-    problem: 'Running a round robin means juggling fair matchups, registrations, last-minute changes, and scores while everyone wants to play.',
-    solution: 'I built rotating-partner and fixed-team formats, partner invitations, team waitlists, vacancy replacement, score entry, and event and cross-event rankings.',
-    engineering: 'The scheduling engine verifies partner rotation, opponents, and court balance. Server-side permissions separate organizer controls from player actions.',
-    stack: ['JavaScript', 'HTML / CSS', 'Supabase', 'PostgreSQL', 'Vercel'],
-    features: ['Verified scheduling', 'Player management', 'Performance rankings']
-  }
-];
-const supportProjects = [
   {
     id: 'escalation-automation', name: 'Escalation Automation', category: 'Internal tool',
-    tagline: 'One-click escalation automation.',
-    description: `Streamlines escalations with one click. It auto-gathers context, drafts summaries, and routes each case to the right team, cutting processing time by ${stats.timeSaved}%, from over two minutes to about eight seconds, across ${fmt(stats.escalations)} production escalations.`,
+    description: 'One click to gather context, draft the summary, and route a case.',
     problem: 'Repetitive escalation filing took time away from investigation and resolution.',
-    solution: 'Built a team-wide JavaScript Chrome extension that turns escalation into one click: it gathers the case context, drafts a summary, and routes the escalation to the right team.',
-    engineering: `The extension reduced processing time by ${stats.timeSaved}% across ${fmt(stats.escalations)} production escalations, bringing a task that took over two minutes down to about eight seconds.`,
-    stack: ['JavaScript', 'Chrome extension', 'Support automation'], features: []
+    solution: 'A team-wide JavaScript Chrome extension that gathers case context, drafts summaries, and routes escalations.',
+    engineering: `Processing time fell from over two minutes to about eight seconds across ${fmt(stats.escalations)} production escalations.`,
+    stack: ['JavaScript', 'Chrome extension', 'Support automation']
   },
   {
-    id: 'support-workflows', name: 'AI-Assisted Support Workflows', category: 'Internal tool',
-    tagline: 'AI-powered support workflows.',
-    description: 'An AI assistant for support engineers that summarizes issues, suggests next steps, and drafts responses, built on API troubleshooting workflows and knowledge from resolved cases.',
-    problem: 'API investigations require support teams to connect the current issue with relevant troubleshooting knowledge.',
-    solution: 'Developed API troubleshooting workflows and AI agent logic within an existing support platform, using resolved cases to summarize issues, suggest next steps, and draft responses.',
-    engineering: `The API workflows were launched on a platform serving ${fmt(stats.reps)}+ global Tier 1 support representatives. My work focused on troubleshooting workflows and agent logic.`,
-    stack: ['API troubleshooting', 'AI agent logic', 'Knowledge workflows'], features: []
+    name: 'DinkLeo', id: 'dinkleo', url: 'https://dinkleo.com/', category: 'Independent product',
+    description: 'Fair matchups. Live standings. More time on the pickleball court.',
+    problem: 'Running a round robin means juggling fair matchups, registrations, last-minute changes, and scores.',
+    solution: 'An event app for rotating-partner and fixed-team games, with invitations, waitlists, score entry, and rankings.',
+    engineering: 'Verified partner rotation, opponents, and court balance. Server-side permissions separate organizer and player actions.',
+    stack: ['JavaScript', 'HTML &amp; CSS', 'Supabase', 'PostgreSQL', 'Vercel'], imageWidth: 1672, imageHeight: 941
   }
 ];
 const jobs = [
@@ -112,40 +96,44 @@ function impact() {
   </div></div></section>`;
 }
 
-function projectVisual(project) {
-  const hostname = new URL(project.url).hostname;
-  const artwork = `<a class="project-preview" href="${project.url}" ${external} aria-label="Visit ${project.name} (opens in a new tab)"><img id="${project.id}-visual" src="img/${project.id}-cover.jpg" alt="${project.name} product artwork" width="1462" height="768" loading="lazy"></a>`;
-  return `<div class="project-visual"><div class="project-visual-toolbar"><a class="project-domain" href="${project.url}" ${external} aria-label="Visit ${project.name} at ${hostname} (opens in a new tab)">${hostname} ${icon('arrow-top-right')}</a><div class="project-view-switcher" role="group" aria-label="${project.name} preview"><button type="button" data-project="${project.id}" data-view="cover" aria-controls="${project.id}-visual" aria-pressed="true">Artwork</button><button type="button" data-project="${project.id}" data-view="screen" aria-controls="${project.id}-visual" aria-pressed="false">Website</button></div></div>${artwork}</div>`;
+function projectIcon(name) {
+  const paths = {
+    problem: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/>',
+    build: '<path d="m12 3 9 5v8l-9 5-9-5V8Z"/><path d="m3 8 9 5 9-5m-9 5v8"/>',
+    engineering: '<path d="m7 7-5 5 5 5m10-10 5 5-5 5M14 4l-4 16"/>',
+    impact: '<path d="M4 4v16h16M8 16v-4m5 4V8m5 8V4"/>'
+  };
+  return `<span class="story-icon ${name}-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths[name]}</svg></span>`;
 }
 
-function supportVisual(project) {
-  if (project.id === 'escalation-automation') {
-    return `<figure class="project-visual build-visual"><figcaption>Escalation processing time</figcaption><p class="build-outcome"><strong>${stats.timeSaved}<span>%</span></strong><span>less time per escalation</span></p><dl class="time-comparison"><div class="comparison-row"><dt>Manual processing</dt><dd>2+ min</dd></div><div class="comparison-row"><dt>With the extension</dt><dd>~8 sec</dd></div></dl><p class="build-context">${fmt(stats.escalations)} production escalations streamlined</p></figure>`;
-  }
-  return `<figure class="project-visual build-visual"><figcaption>AI-assisted investigation</figcaption><p class="workflow-title">Support knowledge,<br>put to work.</p><ol class="workflow-steps"><li>${icon('search-document')}<div><strong>Summarize the issue</strong><span>Key details from the case, at a glance</span></div></li><li>${icon('listine-dots')}<div><strong>Suggest next steps</strong><span>Guidance informed by resolved cases</span></div></li><li>${icon('edit')}<div><strong>Draft a response</strong><span>A starting point for the reply</span></div></li></ol><p class="build-context">Conceptual workflow / Platform contribution</p></figure>`;
-}
-
-function projectCard(project, index, total) {
+function projectCard(project) {
   const isPublic = Boolean(project.url);
-  const number = String(index + 1).padStart(2, '0');
-  const totalLabel = String(total).padStart(2, '0');
-  const outcomeHeading = isPublic ? 'The engineering' : project.id === 'escalation-automation' ? 'The impact' : 'Platform context';
-  return `<article id="${project.id}" class="project project-${project.id}${isPublic ? '' : ' support-project'}" aria-labelledby="${project.id}-title">
-    ${isPublic ? projectVisual(project) : supportVisual(project)}
-    <div class="project-details">
-      <div class="project-meta"><span>${project.category}</span><span>${number} / ${totalLabel}</span></div>
-      <div class="project-title"><h3 id="${project.id}-title">${isPublic ? `<a href="${project.url}" ${external}>${project.name}</a>` : project.name}</h3>${isPublic ? `<a class="project-arrow" href="${project.url}" ${external} aria-label="Visit ${project.name} (opens in a new tab)">${icon('arrow-top-right')}</a>` : ''}</div>
-      <h4>${project.tagline}</h4><p>${project.description}</p>
-      ${project.features.length ? `<ul class="project-features">${project.features.map(feature => `<li>${icon('check-alt')} ${feature}</li>`).join('')}</ul>` : ''}
-      <ul class="project-tags" aria-label="${isPublic ? 'Technology stack' : 'Focus areas'}">${project.stack.map(item => `<li>${item}</li>`).join('')}</ul>
-      <details class="case-study"><summary>${isPublic ? 'Behind the build' : 'Read the case study'} ${icon('plus')}</summary><div class="case-content"><h5>The problem</h5><p>${project.problem}</p><h5>${isPublic ? 'What I built' : 'My contribution'}</h5><p>${project.solution}</p><h5>${outcomeHeading}</h5><p>${project.engineering}</p>${isPublic ? `<figure><img src="img/${project.id}-screen.jpg" alt="Screenshot of the live ${project.name} homepage" width="1440" height="1000" loading="lazy"><figcaption>${project.name} / Live homepage</figcaption></figure><a class="text-link" href="${project.url}" ${external}>Visit ${project.name} ${icon('arrow-top-right')}</a>` : ''}</div></details>
+  const impactId = `${project.id}-impact`;
+  const engineering = `<p>${project.engineering}</p><p class="built-with">${project.stack.join(' / ')}</p>`;
+  return `<article id="${project.id}" class="project${isPublic ? '' : ' project-reversed'}" aria-labelledby="${project.id}-title">
+    <div class="project-media">${isPublic
+      ? `<img class="project-art" src="img/${project.id}-cover.jpg" alt="${project.name} product artwork" width="${project.imageWidth}" height="${project.imageHeight}" loading="lazy">`
+      : `<div class="automation-art"><strong>${stats.timeSaved}<span>%</span></strong><p>less time per escalation</p><small>2+ minutes to ~8 seconds</small></div>`}</div>
+    <div class="project-copy">
+      <p class="project-kind">${project.category}</p>
+      <h3 id="${project.id}-title">${project.name}</h3>
+      <p class="description">${project.description}</p>
+      ${isPublic
+        ? `<a class="project-visit" href="${project.url}" ${external} aria-label="Explore ${project.name} (opens in a new tab)">Explore project <span aria-hidden="true">&#8599;</span></a>`
+        : `<a class="project-visit" href="#${impactId}">See the impact <span aria-hidden="true">&#8595;</span></a>`}
+    </div>
+    <div class="project-story">
+      <div class="story-column"><h4>${projectIcon('problem')}The problem</h4><p>${project.problem}</p></div>
+      <div class="story-column"><h4>${projectIcon('build')}What I built</h4><p>${project.solution}</p></div>
+      ${isPublic
+        ? `<details class="story-column" open><summary>${projectIcon('engineering')}Engineering details</summary>${engineering}</details>`
+        : `<div id="${impactId}" class="story-column project-impact" tabindex="-1"><h4>${projectIcon('impact')}The impact</h4>${engineering}</div>`}
     </div>
   </article>`;
 }
 
 function work() {
-  const builds = [...supportProjects, ...projects];
-  return `<section id="work" class="work-section section-space"><div class="wrap"><div class="section-heading"><div><span class="section-kicker">01 / Selected builds</span><h2>From ideas to products<span>.</span></h2></div><p>Building tools and experiences that solve real problems.</p></div><div class="projects">${builds.map((project, index) => projectCard(project, index, builds.length)).join('')}</div></div></section>`;
+  return `<section id="work" class="work-section" aria-labelledby="work-title"><div class="wrap"><div class="section-heading"><div><span class="section-kicker">01 / Selected builds</span><h2 id="work-title">From ideas to products<span>.</span></h2></div><p>Building tools and experiences that solve real problems.</p></div><div class="projects">${projects.map(projectCard).join('')}</div></div></section>`;
 }
 
 function experience() {
@@ -166,18 +154,6 @@ function contact() {
 }
 
 document.querySelector('#portfolio').innerHTML = `${header()}<main id="main">${hero()}${impact()}${work()}${experience()}${about()}${contact()}</main><footer class="site-footer wrap"><a class="wordmark" href="#main">LY<span>.</span></a><span>&copy; ${new Date().getFullYear()} Leo Yeung</span><a href="#main">Back to top ${icon('arrow-up')}</a></footer>`;
-
-document.querySelectorAll('.project-view-switcher').forEach(switcher => {
-  switcher.addEventListener('click', event => {
-    const button = event.target.closest('button');
-    if (!button) return;
-    const project = projects.find(item => item.id === button.dataset.project);
-    const image = document.getElementById(`${project.id}-visual`);
-    image.src = `img/${project.id}-${button.dataset.view}.jpg`;
-    image.alt = button.dataset.view === 'screen' ? `Screenshot of the live ${project.name} homepage` : `${project.name} product artwork`;
-    switcher.querySelectorAll('button').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
-  });
-});
 
 const heroSection = document.querySelector('.hero-hybrid');
 const heroImage = heroSection?.querySelector('.city-image');
