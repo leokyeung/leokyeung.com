@@ -187,7 +187,8 @@ body[data-design="hybrid"] .nav-contact { border-color: #d6dae35c; }
 body[data-design="hybrid"] .mobile-menu { background: var(--dark); border-color: #545963; }
 .hero-hybrid { --accent: var(--accent-soft); position: relative; isolation: isolate; color: var(--on-dark); background: var(--dark); padding-block: 132px 0; }
 .hero-hybrid::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #181a1ff0 0%, #181a1fca 33%, #181a1f45 70%, #181a1f12 100%), linear-gradient(0deg, #202124ee 0%, #20212400 42%); }
-.hero-hybrid .city-image { object-position: center 50%; }
+.hero-hybrid { overflow: hidden; }
+.hero-hybrid .city-image { object-position: center 50%; will-change: transform; }
 .hybrid-intro { display: flex; align-items: center; gap: 14px; margin-bottom: 21px; }
 .hybrid-intro .portrait { width: 64px; height: 64px; padding: 3px; border: 3px solid transparent; background: linear-gradient(#202124, #202124) padding-box, conic-gradient(from 200deg, #4285f4, #7b6cf6, #a142f4, #4285f4) border-box; }
 .hybrid-intro .eyebrow { font-size: 10px; color: var(--on-dark-muted); }

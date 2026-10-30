@@ -179,6 +179,27 @@ document.querySelectorAll('.project-view-switcher').forEach(switcher => {
   });
 });
 
+const heroSection = document.querySelector('.hero-hybrid');
+const heroImage = heroSection?.querySelector('.city-image');
+if (heroImage) {
+  const parallaxMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let ticking = false;
+  const updateParallax = () => {
+    ticking = false;
+    const offset = Math.min(window.scrollY, heroSection.offsetHeight);
+    heroImage.style.transform = parallaxMotion.matches ? '' : `translate3d(0, ${offset * 0.4}px, 0)`;
+  };
+  const requestParallax = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateParallax);
+  };
+  window.addEventListener('scroll', requestParallax, { passive: true });
+  window.addEventListener('resize', requestParallax);
+  parallaxMotion.addEventListener('change', requestParallax);
+  updateParallax();
+}
+
 const impactSection = document.querySelector('.hybrid-impact');
 if (impactSection && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const counters = [...impactSection.querySelectorAll('.count')];
