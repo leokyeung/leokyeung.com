@@ -9,10 +9,11 @@ const fmt = value => value.toLocaleString('en-US');
 const projects = [
   {
     name: 'LetzHang', id: 'letzhang', url: 'https://letzhang.com/', category: 'Independent product',
-    description: 'Find a day that works for everyone. No sign-up needed to RSVP.',
-    problem: "Group plans get buried in chats. Finding a date shouldn't mean another spreadsheet or an account for every guest.",
-    solution: 'An end-to-end scheduling app with host dashboards, shareable invitations, availability matching, and account-free RSVPs.',
-    engineering: 'Protected guest submissions, duplicate-request handling, and durable notification jobs with retries.',
+    description: 'Getting together should be simple. Find a date that works for everyone.',
+    problem: 'Ever tried finding a date that works for everyone? Endless group messages, conflicting schedules, and too much back-and-forth just to make plans.',
+    solution: 'An intuitive scheduling app with a clean, user-friendly design. Hosts can create events, share a link, and find a date that works for everyone, with no sign-up required for guests. The experience has received positive feedback from users for its simplicity and ease of use.',
+    engineeringTitle: 'Under the hood',
+    engineering: 'Built with secure guest submissions, duplicate-request protection, and reliable email notifications with automatic retries.',
     stack: ['React', 'TypeScript', 'Supabase', 'Vercel', 'Resend'], imageWidth: 1731, imageHeight: 909
   },
   {
@@ -63,10 +64,9 @@ const jobs = [
 const portrait = '<img class="portrait" src="img/headshot.jpg" alt="Leo Yeung" width="400" height="400">';
 
 function header() {
-  const sections = ['work', 'experience', 'about'];
-  const links = sections.map(id => `<a href="#${id}">${id[0].toUpperCase()}${id.slice(1)}</a>`).join('');
-  const resumeButton = `<a class="nav-contact" href="${resumeUrl}" ${external} aria-label="My Resume (PDF, opens in a new tab)">My Resume</a>`;
-  return `<header class="site-header wrap"><a class="wordmark" href="#main" aria-label="Leo Yeung home">LY<span>.</span></a><span class="header-context">Engineering, with people in mind.</span><nav class="site-nav" aria-label="Main navigation">${links}${resumeButton}</nav><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">${icon('navigation-menu')}</button><nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden>${links}${resumeButton}</nav></header>`;
+  const sections = [['work', 'Product'], ['experience', 'Experience'], ['about', 'About']];
+  const links = sections.map(([id, label]) => `<a href="#${id}">${label}</a>`).join('');
+  return `<header class="site-header wrap"><a class="wordmark" href="#main" aria-label="Leo Yeung home">LY<span>.</span></a><span class="header-context">Engineering, with people in mind.</span><nav class="site-nav" aria-label="Main navigation">${links}</nav><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">${icon('navigation-menu')}</button><nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden>${links}</nav></header>`;
 }
 
 function hero() {
@@ -76,9 +76,8 @@ function hero() {
       <div class="hybrid-intro">${portrait}<div><span class="eyebrow">Support Engineer / Automation Builder</span></div></div>
       <h1 class="visually-hidden">Leo Yeung</h1>
       <h2>I build tools that make<br><em>complex work</em> simpler.</h2>
-      <p class="hybrid-hero-description">Hey, I'm Leo. I bridge support engineering, AI, and product thinking<br> to build better experiences at scale.</p>
-      <div class="hero-actions"><a class="primary-link" href="#work">Explore my work ${icon('arrow-down')}</a><a class="text-link" href="#contact">Get in touch ${icon('arrow-down')}</a></div>
-      <div class="hybrid-hero-footer"><div class="hybrid-companies"><span>Experience across</span><strong>LinkedIn</strong><strong>Directly</strong><strong>Visa</strong></div><span class="hybrid-specialties">API integrations / AI automation / Partnerships</span></div>
+      <div class="hero-actions"><a class="primary-link" href="${resumeUrl}" ${external} aria-label="My Resume (PDF, opens in a new tab)">My Resume</a></div>
+      <div class="hybrid-hero-footer"><div class="hybrid-companies"><span>Experience across</span><strong>LinkedIn</strong><strong>Directly</strong><strong>Visa</strong></div><span class="hybrid-specialties">AI &amp; Automation / APIs &amp; Integrations</span></div>
     </div>
   </section>`;
 }
@@ -88,7 +87,7 @@ function impact() {
     const label = fmt(value);
     return `<span class="count" data-target="${value}"><span class="count-sizer" aria-hidden="true">${label}</span><span class="count-value" aria-hidden="true">${label}</span><span class="visually-hidden">${label}</span></span>`;
   };
-  return `<section id="impact" class="hybrid-impact" aria-label="Career impact"><div class="wrap"><p class="section-kicker">The difference is in the details. The impact is in the numbers.</p><div class="hybrid-metrics">
+  return `<section id="impact" class="hybrid-impact" aria-label="Career impact"><div class="wrap"><p class="section-kicker">A decade of experience. A track record of impact.</p><div class="hybrid-metrics">
     <div class="metric"><strong>${counter(stats.years)}<span>+</span></strong><p>Years in Support Engineering</p><small>Advertising, SaaS, and payments</small></div>
     <div class="metric"><strong>${counter(stats.timeSaved)}<span>%</span></strong><p>less time per escalation</p><small>From 2+ minutes to ~8 seconds</small></div>
     <div class="metric"><strong>${counter(stats.escalations)}<span>+</span></strong><p>production escalations streamlined</p><small>With a team-wide extension I built</small></div>
@@ -119,21 +118,21 @@ function projectCard(project) {
       <h3 id="${project.id}-title">${project.name}</h3>
       <p class="description">${project.description}</p>
       ${isPublic
-        ? `<a class="project-visit" href="${project.url}" ${external} aria-label="Explore ${project.name} (opens in a new tab)">Explore project <span aria-hidden="true">&#8599;</span></a>`
+        ? `<a class="project-visit" href="${project.url}" ${external} aria-label="Try out ${project.name} (opens in a new tab)">Try it out <span aria-hidden="true">&#8599;</span></a>`
         : `<a class="project-visit" href="#${impactId}">See the impact <span aria-hidden="true">&#8595;</span></a>`}
     </div>
     <div class="project-story">
       <div class="story-column"><h4>${projectIcon('problem')}The problem</h4><p>${project.problem}</p></div>
       <div class="story-column"><h4>${projectIcon('build')}What I built</h4><p>${project.solution}</p></div>
       ${isPublic
-        ? `<details class="story-column" open><summary>${projectIcon('engineering')}Engineering details</summary>${engineering}</details>`
+        ? `<div class="story-column"><h4>${projectIcon('engineering')}${project.engineeringTitle || 'Engineering details'}</h4>${engineering}</div>`
         : `<div id="${impactId}" class="story-column project-impact" tabindex="-1"><h4>${projectIcon('impact')}The impact</h4>${engineering}</div>`}
     </div>
   </article>`;
 }
 
 function work() {
-  return `<section id="work" class="work-section" aria-labelledby="work-title"><div class="wrap"><div class="section-heading"><div><span class="section-kicker">01 / Selected builds</span><h2 id="work-title">From ideas to products<span>.</span></h2></div><p>Building tools and experiences that solve real problems.</p></div><div class="projects">${projects.map(projectCard).join('')}</div></div></section>`;
+  return `<section id="work" class="work-section" aria-labelledby="work-title"><div class="wrap"><div class="section-heading"><div><span class="section-kicker">01 / Selected builds</span><h2 id="work-title">From ideas to products<span>.</span></h2></div><p>Building products and experiences that solve real problems.</p></div><div class="projects">${projects.map(projectCard).join('')}</div></div></section>`;
 }
 
 function experience() {

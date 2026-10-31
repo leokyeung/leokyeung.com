@@ -12,9 +12,8 @@ The site is static HTML, CSS, and JavaScript served by GitHub Pages from
 - The project section uses the approved refined-gallery design: LetzHang,
   Escalation Automation, then DinkLeo, each in its own full-width card. The
   middle card places its description on the left on desktop; mobile keeps
-  artwork first. Problem and contribution summaries stay visible, and public
-  projects have engineering details expanded by default with keyboard-accessible
-  disclosure controls. Preview toggles, feature lists, and duplicate links have
+  artwork first. Problem, contribution, and engineering summaries are always
+  visible. Preview toggles, feature lists, and duplicate links have
   been replaced by a single project action and a compact technology list.
 - The page also includes career history, impact metrics, skills, and contact
   links. Project artwork comes from the respective repositories; homepage
