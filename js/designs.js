@@ -238,16 +238,36 @@ if (careerTimeline && 'IntersectionObserver' in window) {
 
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
-function closeMenu() {
+const menuMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const menuCloseMs = 260;
+let menuTimer;
+function hideMenu() {
+  clearTimeout(menuTimer);
+  mobileMenu.classList.remove('is-closing');
+  mobileMenu.hidden = true;
+}
+function closeMenu(immediate = false) {
   menuToggle.setAttribute('aria-expanded', 'false');
   menuToggle.setAttribute('aria-label', 'Open navigation');
-  mobileMenu.hidden = true;
+  if (mobileMenu.hidden || mobileMenu.classList.contains('is-closing')) return;
+  if (immediate === true || menuMotion.matches) {
+    hideMenu();
+    return;
+  }
+  mobileMenu.classList.add('is-closing');
+  menuTimer = setTimeout(hideMenu, menuCloseMs);
 }
 menuToggle.addEventListener('click', () => {
   const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
-  menuToggle.setAttribute('aria-expanded', String(!isOpen));
-  menuToggle.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
-  mobileMenu.hidden = isOpen;
+  if (isOpen) {
+    closeMenu();
+    return;
+  }
+  clearTimeout(menuTimer);
+  mobileMenu.classList.remove('is-closing');
+  menuToggle.setAttribute('aria-expanded', 'true');
+  menuToggle.setAttribute('aria-label', 'Close navigation');
+  mobileMenu.hidden = false;
 });
 mobileMenu.addEventListener('click', event => {
   if (event.target.closest('a')) closeMenu();
@@ -261,4 +281,4 @@ document.addEventListener('keydown', event => {
 document.addEventListener('click', event => {
   if (!event.target.closest('.site-header')) closeMenu();
 });
-matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
+matchMedia('(min-width: 761px)').addEventListener('change', () => closeMenu(true));
