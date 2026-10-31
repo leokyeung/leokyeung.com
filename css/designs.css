@@ -243,7 +243,7 @@ body[data-design="hybrid"] .mobile-menu { background: #2021249e; -webkit-backdro
 .hero-hybrid h2 { font-size: 64px; line-height: 1.08; }
 .hero-hybrid h2 em { color: var(--accent-soft); }
 .hero-hybrid .hero-actions { margin-top: 23px; gap: 28px; }
-.hero-hybrid .primary-link { background: var(--accent-soft); color: var(--dark); font-weight: 600; padding-inline: 20px; }
+.hero-hybrid .primary-link { background: var(--accent-soft); color: var(--dark); font-weight: 600; font-size: 13px; min-height: 42px; padding: 8px 20px; border-radius: 12px; }
 .hero-hybrid .primary-link:hover { background: #e4ebff; }
 .hero-hybrid .text-link { color: var(--on-dark); }
 .hero-hybrid .text-link:hover { color: var(--accent-soft); }
@@ -339,7 +339,7 @@ body[data-design="hybrid"] .site-footer { padding-block: 28px; border: 0; }
 	.hero-hybrid h1 { font-size: 63px; margin-bottom: 22px; }
 	.hero-hybrid h2 { font-size: 34px; }
 	.hero-hybrid .hero-actions { gap: 17px; margin-top: 23px; flex-wrap: wrap; font-size: 10px; }
-	.hero-hybrid .primary-link { padding: 12px 13px; gap: 13px; }
+	.hero-hybrid .primary-link { padding: 8px 18px; gap: 13px; }
 	.hero-hybrid .text-link { gap: 7px; }
 	.hybrid-hero-footer { margin-top: 52px; padding-block: 20px; }
 	.hybrid-companies { width: 100%; justify-content: space-between; gap: 16px; }
@@ -374,7 +374,7 @@ body[data-design="hybrid"] .site-footer { padding-block: 28px; border: 0; }
 	.hero-hybrid h1 { font-size: 54px; }
 	.hero-hybrid h2 { font-size: 30px; }
 	.hero-hybrid .hero-actions { gap: 12px; font-size: 9px; }
-	.hero-hybrid .primary-link { padding-inline: 11px; gap: 10px; }
+	.hero-hybrid .primary-link { padding-inline: 16px; gap: 10px; }
 	.hybrid-companies { gap: 12px; }
 	.hybrid-companies strong { font-size: 12px; }
 	body[data-design="hybrid"] .contact-row h2 { font-size: 31px; }
