@@ -37,10 +37,11 @@ const jobs = [
   {
     company: 'LinkedIn', role: 'Senior Technical Support Engineer', dates: '2020 - Present',
     points: [
-      'Own API, authentication, and billing escalations for enterprise advertisers and business customers, partnering with Engineering, Product, Sales, and Customer Success.',
-      'Investigate REST API, SSO, and integration failures through HTTP/JSON analysis, logs, request traces, and reproducible tests.',
-      `Built a team-wide JavaScript Chrome extension that reduced escalation time by ${stats.timeSaved}%, from over two minutes to about eight seconds, across ${fmt(stats.escalations)} production escalations.`,
-      `Launched API troubleshooting workflows on a platform serving ${fmt(stats.reps)}+ global Tier 1 support representatives, and developed AI agent logic that turns resolved cases into useful guidance.`
+      'Own complex API, authentication, integration, and billing escalations for enterprise customers, partnering with Engineering, Product, Sales, and Customer Success to drive resolution.',
+      'Diagnose REST API, SSO, and integration failures using HTTP/JSON analysis, application logs, request traces, and reproducible test cases.',
+      `Independently developed and deployed a JavaScript Chrome extension adopted across Tier 3 Support Engineering, reducing escalation filing time by <strong>${stats.timeSaved}%</strong> across <strong>${fmt(stats.escalations)}+ production escalations</strong>.`,
+      `Built API-integrated troubleshooting workflows and AI agent logic for a platform serving <strong>${fmt(stats.reps)}+ global Tier 1 support representatives</strong>, expanding support automation capabilities.`,
+      'Led a cross-functional <strong>AI Native initiative</strong> to unify fragmented support tools into a scalable platform, driving technical requirements, stakeholder alignment, and implementation through rollout.'
     ]
   },
   {

@@ -129,6 +129,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .job-body ul { margin: 0; padding-left: 16px; color: var(--muted); font-size: 13px; }
 .job-body li { padding-left: 8px; margin-block: 10px; }
 .job-body li::marker { color: var(--accent); }
+.job-body strong { color: var(--ink); font-weight: 600; }
 .about-section { background: var(--surface); }
 .skill-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 45px; margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--line); }
 .skill-group > i { font-size: 22px; color: var(--accent); }
@@ -279,7 +280,7 @@ body[data-design="hybrid"] .job-number { padding-top: 4px; color: var(--accent);
 body[data-design="hybrid"] .job-heading h3 { font-size: 32px; }
 .current-role { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; margin-top: 16px; color: var(--accent); }
 .current-role::before { content: ''; display: inline-block; width: 5px; height: 5px; margin-right: 7px; border-radius: 50%; background: var(--accent); vertical-align: middle; }
-body[data-design="hybrid"] .job-role { font-size: 13px; }
+body[data-design="hybrid"] .job-role { font-size: 20px; line-height: 1.35; margin-bottom: 18px; }
 body[data-design="hybrid"] .job-body h4 { font-family: var(--display); font-size: 25px; font-weight: 400; }
 body[data-design="hybrid"] .job-body ul { font-size: 13px; line-height: 1.8; }
 body[data-design="hybrid"] .about-section { background: var(--bg); border-top: 1px solid var(--line); }
@@ -351,6 +352,7 @@ body[data-design="hybrid"] .site-footer { padding-block: 28px; border: 0; }
 	.current-role { margin-top: 9px; }
 	body[data-design="hybrid"] .job-body h4 { font-size: 23px; }
 	body[data-design="hybrid"] .job-body ul { font-size: 12px; }
+	body[data-design="hybrid"] .job-role { font-size: 17px; margin-bottom: 14px; }
 	body[data-design="hybrid"] .about-section > .wrap { grid-template-columns: minmax(0, 1fr); gap: 20px; }
 	body[data-design="hybrid"] .about-section .skill-groups { grid-template-columns: minmax(0, 1fr); gap: 0; }
 	body[data-design="hybrid"] .skill-group { padding-block: 22px; }
@@ -391,7 +393,7 @@ body[data-design="hybrid"] .career-timeline .job { --node-center: 46px; position
 body[data-design="hybrid"] .career-timeline .job::before,
 body[data-design="hybrid"] .career-timeline .job::after { content: ''; position: absolute; top: 0; bottom: 0; left: 13px; width: 2px; pointer-events: none; }
 body[data-design="hybrid"] .career-timeline .job::before { background: var(--line); }
-body[data-design="hybrid"] .career-timeline .job::after { background: #8ca7e6; transform-origin: top; transition: transform .85s cubic-bezier(.2, .7, .2, 1); }
+body[data-design="hybrid"] .career-timeline .job::after { background: #8ca7e6; transform-origin: top; transition: transform 1.8s cubic-bezier(.3, .5, .3, 1); }
 body[data-design="hybrid"] .career-timeline .job:first-child::before,
 body[data-design="hybrid"] .career-timeline .job:first-child::after { top: var(--node-center); }
 body[data-design="hybrid"] .career-timeline .job:last-child::before,
