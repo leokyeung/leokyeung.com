@@ -18,18 +18,18 @@ const projects = [
   },
   {
     id: 'escalation-automation', name: 'Escalation Automation', category: 'Internal tool',
-    description: 'One click to gather context, draft the summary, and route a case.',
-    problem: 'Repetitive escalation filing took time away from investigation and resolution.',
-    solution: 'A team-wide JavaScript Chrome extension that gathers case context, drafts summaries, and routes escalations.',
-    engineering: `Processing time fell from over two minutes to about eight seconds across ${fmt(stats.escalations)} production escalations.`,
+    description: 'Turn support cases into engineering-ready Jira tickets in one click.',
+    problem: 'Escalating cases to Engineering meant navigating multiple CRMs, manually copying case details, and filling out 10+ Jira fields. A repetitive, error-prone process that took minutes per escalation.',
+    solution: 'Built a Chrome extension that automatically transfers case details from Salesforce and Dynamics into Jira, populating 10+ fields and creating engineering escalations in one click.',
+    engineering: `Adopted across the entire Tier 3 Support Engineering organization, cutting escalation filing time by ${stats.timeSaved}%, from over two minutes to eight seconds. With ${fmt(stats.escalations)}+ escalations and counting, time savings continue to grow, reducing repetitive work and improving daily workflows.`,
     stack: ['JavaScript', 'Chrome extension', 'Support automation']
   },
   {
     name: 'DinkLeo', id: 'dinkleo', url: 'https://dinkleo.com/', category: 'Independent product',
-    description: 'Fair matchups. Live standings. More time on the pickleball court.',
-    problem: 'Running a round robin means juggling fair matchups, registrations, last-minute changes, and scores.',
-    solution: 'An event app for rotating-partner and fixed-team games, with invitations, waitlists, score entry, and rankings.',
-    engineering: 'Verified partner rotation, opponents, and court balance. Server-side permissions separate organizer and player actions.',
+    description: 'Smarter matchups. Live standings. More time on court.',
+    problem: 'Organizing a pickleball round robin means juggling player registrations, fair matchups, last-minute changes, and scores. A time-consuming process that takes organizers away from enjoying the game.',
+    solution: 'Built an all-in-one pickleball event platform supporting rotating-partner and fixed-team formats, with player invitations, waitlists, score tracking, and live standings.',
+    engineering: 'Built a fair matchmaking algorithm that minimizes repeat partners and opponents while balancing court assignments. Server-side permissions keep organizer and player actions separate.',
     stack: ['JavaScript', 'HTML &amp; CSS', 'Supabase', 'PostgreSQL', 'Vercel'], imageWidth: 1672, imageHeight: 941
   }
 ];
