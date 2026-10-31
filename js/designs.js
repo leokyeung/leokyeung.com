@@ -74,7 +74,7 @@ function hero() {
   return `<section class="hero hero-hybrid">
     <img class="city-image" src="img/hk.jpg" alt="Hong Kong skyline overlooking the harbor" fetchpriority="high">
     <div class="hybrid-hero-content wrap">
-      <div class="hybrid-intro">${portrait}<div><span class="eyebrow">Support Engineer / Automation Builder</span></div></div>
+      <div class="hybrid-intro">${portrait}<div><span class="eyebrow">Senior Support Engineer / AI &amp; Automation Builder</span></div></div>
       <h1 class="visually-hidden">Leo Yeung</h1>
       <h2>I build tools that make<br><em>complex work</em> simpler.</h2>
       <div class="hero-actions"><a class="primary-link" href="${resumeUrl}" ${external} aria-label="My Resume (PDF, opens in a new tab)">My Resume</a></div>
