@@ -320,7 +320,7 @@ body[data-design="hybrid"] .site-footer { padding-block: 28px; border: 0; }
 @media (max-width: 760px) {
   body[data-design="hybrid"] .site-header { padding-block: 15px; }
 	body[data-design="hybrid"] .menu-toggle { color: var(--on-dark); border-color: #d6dae366; }
-	.hero-hybrid { padding-top: 100px; padding-bottom: 0; }
+	.hero-hybrid { padding-top: 121px; padding-bottom: 0; }
 	.hero-hybrid::before { background: linear-gradient(90deg, #181a1fe6, #181a1f86), linear-gradient(0deg, #202124e6, #20212400 50%); }
 	.hero-hybrid .city-image { object-position: 62% center; }
 	.hybrid-intro { gap: 11px; margin-bottom: 21px; }
@@ -382,7 +382,7 @@ body[data-design="hybrid"] .hybrid-companies { flex-wrap: wrap; }@media (max-hei
 	.hybrid-hero-footer { margin-top: 44px; padding-block: 18px; }
 }
 @media (max-height: 700px) and (max-width: 760px) {
-	.hero-hybrid { padding-top: 90px; }
+	.hero-hybrid { padding-top: 109px; }
 	.hero-hybrid h1 { font-size: 52px; margin-bottom: 14px; }
 	.hero-hybrid h2 { font-size: 28px; }
 	.hero-hybrid .hero-actions { margin-top: 18px; }
