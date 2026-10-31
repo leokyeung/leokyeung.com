@@ -11,7 +11,7 @@ const projects = [
     name: 'LetzHang', id: 'letzhang', url: 'https://letzhang.com/', category: 'Independent product',
     description: 'Getting together should be simple. Find a date that works for everyone.',
     problem: 'Ever tried finding a date that works for everyone? Endless group messages, conflicting schedules, and too much back-and-forth just to make plans.',
-    solution: 'An intuitive scheduling app with a clean, user-friendly design. Hosts can create events, share a link, and find a date that works for everyone, with no sign-up required for guests. The experience has received positive feedback from users for its simplicity and ease of use.',
+    solution: 'An intuitive scheduling app with a clean design. Hosts share a link and find a date that works for everyone, with no sign-up for guests. Users praise its simplicity.',
     engineeringTitle: 'Under the hood',
     engineering: 'Built with secure guest submissions, duplicate-request protection, and reliable email notifications with automatic retries.',
     stack: ['React', 'TypeScript', 'Supabase', 'Vercel', 'Resend'], imageWidth: 1731, imageHeight: 909
@@ -105,6 +105,11 @@ function projectIcon(name) {
   return `<span class="story-icon ${name}-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths[name]}</svg></span>`;
 }
 
+function visitChip(direction) {
+  const arrow = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${direction === 'down' ? 'M12 5v14m-6-6 6 6 6-6' : 'M7 17 17 7M8 7h9v9'}"/></svg>`;
+  return `<span class="visit-chip visit-chip-${direction}" aria-hidden="true">${arrow}${arrow}</span>`;
+}
+
 function projectCard(project) {
   const isPublic = Boolean(project.url);
   const impactId = `${project.id}-impact`;
@@ -118,8 +123,8 @@ function projectCard(project) {
       <h3 id="${project.id}-title">${project.name}</h3>
       <p class="description">${project.description}</p>
       ${isPublic
-        ? `<a class="project-visit" href="${project.url}" ${external} aria-label="Try out ${project.name} (opens in a new tab)">Try it out <span aria-hidden="true">&#8599;</span></a>`
-        : `<a class="project-visit" href="#${impactId}">See the impact <span aria-hidden="true">&#8595;</span></a>`}
+        ? `<a class="project-visit" href="${project.url}" ${external} aria-label="See ${project.name} live (opens in a new tab)">See it live ${visitChip('up-right')}</a>`
+        : `<a class="project-visit" href="#${impactId}">See the impact ${visitChip('down')}</a>`}
     </div>
     <div class="project-story">
       <div class="story-column"><h4>${projectIcon('problem')}The problem</h4><p>${project.problem}</p></div>
